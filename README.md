@@ -2,6 +2,16 @@
 
 Hier Bitte organisatorisches schreiben
 
+Design schema:
+Beach-Thema für das gesammte Memory layout
+   
+   Farben:
+      Gelb: rgb(255,192,037)
+      Blau: rgb(225,255,255)
+      Hintergrund (peach): rgb(255,245,238)
+   Schriftarten:
+      
+
 
 Docbook:
    docbook.xml ist das Hauptdokument. Die Einzelnen Aufgaben werden in dokumenten a1.xml - aX.xml bearbeitet und durch 
