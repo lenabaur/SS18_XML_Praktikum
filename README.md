@@ -13,11 +13,12 @@ Docbook:
       https://tdg.docbook.org/tdg/5.2/ch02.html
       https://www.data2type.de/xml-xslt-xslfo/docbook/docbook-einstieg/verweis-auf-ein-docbook5-schem/
       
-   Fragen:
+    Fragen:
   
   
 Playcards:
   18 Karten bisher erstellt.
+    
     to-do:
       Buttons erstellen
       Karten auf Redundanz Prüfen
@@ -27,24 +28,28 @@ Playcards:
       https://www.w3schools.com/xml/
       https://www.w3schools.com/graphics/svg_intro.asp
     
-   Fragen:
+    Fragen:
     
     
  
  
- Aufgabenblatt 1
-  A5 - offen
-  A6 - Lena - in Arbeit
+ Aufgabenblatt 1:
  
- Aufgabenblatt 2
-  A1 - offen
-  A2 - offen
+  A5 - offen   ;
+  A6 - Lena - in Arbeit ;
  
- Aufgabenblatt 3      >BaseX installieren<
-  A1 - offen          > erweitert UML aus A1 von AB2 <
-  A2 - offen
+ Aufgabenblatt 2:
  
- Aufgabenblatt 4
+  A1 - offen   ;
+  A2 - offen   ;
+ 
+ Aufgabenblatt 3:      >BaseX installieren<
+ 
+  A1 - offen          > erweitert UML aus A1 von AB2 <   ;
+  A2 - offen   ;
+ 
+ Aufgabenblatt 4:
+ 
   optional           >wollen wir XForms oder HTML verwenden?<
   
   
