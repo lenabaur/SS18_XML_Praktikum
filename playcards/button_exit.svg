@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" height="80" width="80">
+    <a id="exit">
+        <circle cx="40" cy="40" r="38" stroke="black" stroke-width="3" fill="rgb(255,192,037)" 
+        />
+        
+        <style>
+            .big { font: bold 27px sans-serif;}
+        </style>
+        <text x="15" y="48" stroke="black" fill="rgb(225,255,255)" class="big">Exit
+        </text>
+    </a>
+</svg>
