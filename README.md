@@ -6,13 +6,14 @@ Hier Bitte organisatorisches schreiben
 Docbook:
    docbook.xml ist das Hauptdokument. Die Einzelnen Aufgaben werden in dokumenten a1.xml - aX.xml bearbeitet und durch 
   <xi:include href="a1.xml"/> hinzugefügt.
+  
     to-do:
     
     Hilfreiche Webseiten:
       https://tdg.docbook.org/tdg/5.2/ch02.html
       https://www.data2type.de/xml-xslt-xslfo/docbook/docbook-einstieg/verweis-auf-ein-docbook5-schem/
       
-    Fragen:
+   Fragen:
   
   
 Playcards:
@@ -26,7 +27,7 @@ Playcards:
       https://www.w3schools.com/xml/
       https://www.w3schools.com/graphics/svg_intro.asp
     
-    Fragen:
+   Fragen:
     
     
  
