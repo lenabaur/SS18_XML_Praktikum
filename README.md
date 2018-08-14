@@ -10,6 +10,7 @@ Beach-Thema für das gesammte Memory layout
       Blau: rgb(225,255,255)
       Hintergrund (peach): rgb(255,245,238)
    Schriftarten:
+      sans-serif
       
 
 
@@ -27,10 +28,9 @@ Docbook:
   
   
 Playcards:
-  18 Karten bisher erstellt.
+  18 Karten. Buttons (start,exit,stats,player)
     
     to-do:
-      Buttons erstellen
       Karten auf Redundanz Prüfen
       css-Files für Spieltisch erstellen
     
