@@ -41,8 +41,9 @@ Playcards:
     Fragen:
     
  UML:
-   Webseite: http://uml.bozeman.de/index2.php
-   Login:
+   
+     Webseite: http://uml.bozeman.de/index2.php
+     Login:
       Nickname: SS18
       Passwort: Projekt
    
