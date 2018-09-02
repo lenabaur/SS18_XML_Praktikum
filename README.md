@@ -46,11 +46,11 @@ Playcards:
  Aufgabenblatt 1:
  
   A5 - offen   ;
-  A6 - Lena - in Arbeit ;
+  A6 - Lena - fertig (bitte überprüfen) ;
  
  Aufgabenblatt 2:
  
-  A1 - offen   ;
+  A1 - Lena - in Arbeit   ;
   A2 - offen   ;
  
  Aufgabenblatt 3:      >BaseX installieren<
