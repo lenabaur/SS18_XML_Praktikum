@@ -47,25 +47,25 @@ Playcards:
       Nickname: SS18
       Passwort: Projekt
    
+ Aufgaben:
  
+      Aufgabenblatt 1:
  
- Aufgabenblatt 1:
+       A5 - offen   ;
+       A6 - Lena - fertig (bitte überprüfen) ;
  
-  A5 - offen   ;
-  A6 - Lena - fertig (bitte überprüfen) ;
+      Aufgabenblatt 2:
  
- Aufgabenblatt 2:
+      A1 - Lena - in Arbeit   ;
+      A2 - offen   ;
  
-  A1 - Lena - in Arbeit   ;
-  A2 - offen   ;
+      Aufgabenblatt 3:      >BaseX installieren<
  
- Aufgabenblatt 3:      >BaseX installieren<
+      A1 - offen          > erweitert UML aus A1 von AB2 <   ;
+      A2 - offen   ;
  
-  A1 - offen          > erweitert UML aus A1 von AB2 <   ;
-  A2 - offen   ;
+      Aufgabenblatt 4:
  
- Aufgabenblatt 4:
- 
-  optional           >wollen wir XForms oder HTML verwenden?<
+      optional           >wollen wir XForms oder HTML verwenden?<
   
   
