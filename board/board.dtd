@@ -9,7 +9,7 @@
 <!ELEMENT spielerId (#PCDATA)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT amZug EMPTY>
-<!ATTLIST amZug preferred (true | false)>
+<!ATTLIST amZug preferred (true | false) "false">
 <!ELEMENT punkte (#PCDATA)>
 
 <!ELEMENT kartendeck (karte+)>
@@ -18,8 +18,8 @@
 <!ELEMENT kartenID (#PCDATA)>
 <!ELEMENT bild (#PCDATA)>
 <!ELEMENT aufgedeckt EMPTY>
-<!ATTLIST aufgedeckt preferred (true | false)>
+<!ATTLIST aufgedeckt preferred (true | false) "false">
 <!ELEMENT eingesammelt EMPTY>
-<!ATTLIST eingesammelt preferred (true | false)>
+<!ATTLIST eingesammelt preferred (true | false) "false">
 <!ELEMENT positionZeile (#PCDATA)>
 <!ELEMENT positionSpalte (#PCDATA)>
