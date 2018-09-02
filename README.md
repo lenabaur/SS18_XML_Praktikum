@@ -40,8 +40,14 @@ Playcards:
     
     Fragen:
     
- UML:
-   
+Board:
+
+     Fragen:
+      - Sollen wir Id`s als Elemente oder Attribute eintragen?
+      - Boolsche werte als Attribute immitieren?
+      - reicht das UML Diagramm aus oder fallen euch noch Punkte ein?
+      
+     UML:
      Webseite: http://uml.bozeman.de/index2.php
      Login:
       Nickname: SS18
