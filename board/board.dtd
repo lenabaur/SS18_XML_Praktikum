@@ -1,0 +1,37 @@
+<!DOCTYPE board [
+
+<!ELEMENT spiel (spielId,spielerAnzahl,gewinnerId,beendet,button)>
+<!ELEMENT spielId (#PCDATA)>
+<!ELEMENT spielerAnzahl (#PCDATA)>
+<!ELEMENT gewinnerId (#PCDATA)>
+<!ELEMENT beendet EMPTY>
+<!ATTLIST beendet stat (true | false) "false">
+<!ELEMENT button (buttonId,gedrueckt,buttonName,buttonBild)>
+<!ELEMENT buttonID (#PCDATA)>
+<!ELEMENT gedrueckt EMPTY>
+<!ATTLIST gedrueckt stat (true | false) "false">
+<!ELEMENT buttonName (#PCDATA)>
+<!ELEMENT buttonBild ANY>
+
+<!ELEMENT spieler (spielerId,name,amZug,punkte)>
+<!ATTLIST spieler num CDATA "0">
+<!ELEMENT spielerId (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT amZug EMPTY>
+<!ATTLIST amZug stat (true | false) "false">
+<!ELEMENT punkte (#PCDATA)>
+
+<!ELEMENT kartendeck (karte+, kartenAnzahl)>
+<!ATTLIST kartendeck deckID ID>
+<!Element kartenAnzahl (#PCDATA)>
+<!ELEMENT karte (kartenId,bild,aufgedeckt,eingesammelt,positionZeile,positionSpalte)>
+<!ELEMENT kartenID (#PCDATA)>
+<!ELEMENT bild ANY>
+<!ELEMENT aufgedeckt EMPTY>
+<!ATTLIST aufgedeckt stat (true | false) "false">
+<!ELEMENT eingesammelt EMPTY>
+<!ATTLIST eingesammelt stat (true | false) "false">
+<!ELEMENT positionZeile (#PCDATA)>
+<!ELEMENT positionSpalte (#PCDATA)>
+
+]>

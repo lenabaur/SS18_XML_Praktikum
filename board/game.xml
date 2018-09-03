@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE board SYSTEM "board.dtd">
+
+<memory>
+
+    <spiel>
+        <spielID>0</spielID>
+        <spielerAnzahl>2</spielerAnzahl>
+        <gewinnerID>0</gewinnerID>
+        <beendet stat="false"></beendet>
+        <button>
+            <buttonID>1</button>
+            <buttonName>Start</buttonName>
+            <buttonBild></buttonBild>
+            <gedrueckt stat="false"></gedrueckt>
+        </button>
+        <button>
+            <buttonID>2</button>
+            <buttonName>Exit</buttonName>
+            <buttonBild></buttonBild>
+            <gedrueckt stat="false"></gedrueckt>
+        </button>
+        <button>
+            <buttonID>3</button>
+            <buttonName>Player</buttonName>
+            <buttonBild></buttonBild>
+            <gedrueckt stat="false"></gedrueckt>
+        </button>
+        <button>
+            <buttonID>4</button>
+            <buttonName>Stats</buttonName>
+            <buttonBild></buttonBild>
+            <gedrueckt stat="false"></gedrueckt>
+        </button>               
+    </spiel>
+
+    <spieler num="1">
+        <spielerId>0</spielerId>
+        <name>SpielerName</name>
+        <amZug stat="false"></amZug>
+        <punkte>0</punkte>
+    </spieler>
+    <spieler num="2">
+        <spielerId>0</spielerId>
+        <name>SpielerName</name>
+        <amZug stat="false"></amZug>
+        <punkte>0</punkte>
+    </spieler>
+    <spieler num="3">
+        <spielerId>0</spielerId>
+        <name>SpielerName</name>
+        <amZug stat="false"></amZug>
+        <punkte>0</punkte>
+    </spieler>
+    <spieler num="4">
+        <spielerId>0</spielerId>
+        <name>SpielerName</name>
+        <amZug stat="false"></amZug>
+        <punkte>0</punkte>
+    </spieler>
+    
+
+    <kartenDeck>
+        <kartenAnzahl>0</kartenAnzahl>
+        <karte>
+            <kartenID>1</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>2</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>3</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>4</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>5</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>6</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>7</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>8</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>9</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>10</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>11</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>12</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>13</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>14</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>15</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>16</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>17</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+        <karte>
+            <kartenID>18</kartenID>
+            <bild></bild>
+            <aufgedeckt stat="false"></aufgedeckt>
+            <eingesammelt stat="false"></eingesammelt>
+            <positionZeile></positionZeile>
+            <positionSpalte></positionSpalte>
+        </karte>
+    </kartenDeck>
+</memory>
