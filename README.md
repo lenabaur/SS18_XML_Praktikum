@@ -57,7 +57,7 @@ Board:
  
       Aufgabenblatt 1:
  
-       A5 - offen   ;
+       A5 - Melisa - in Arbeit   ;
        A6 - Lena - fertig (bitte überprüfen) ;
  
       Aufgabenblatt 2:
