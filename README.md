@@ -62,16 +62,19 @@ Board:
  
       Aufgabenblatt 2:
  
-      A1 - Lena - in Arbeit   ;
+      A1 - weiter ergänzen   ;
       A2 - offen   ;
  
       Aufgabenblatt 3:      >BaseX installieren<
  
-      A1 - offen          > erweitert UML aus A1 von AB2 <   ;
+      A1 - Lena - weitgehend erledigt          > erweitert UML aus A1 von AB2 <   ;
       A2 - offen   ;
  
       Aufgabenblatt 4:
  
       optional           >wollen wir XForms oder HTML verwenden?<
+      
+      
+      Lena: Docbook bis Blatt 2 Aufgabe 1 erstellen
   
   
