@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<article xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <info>
+        <title>Aufgabenblatt 2</title>
+        <author>
+            <orgname>Hajar Alsumaydaiy, Lena Baur, Melisa Ululer</orgname>
+        </author>
+    </info>
+    <sect1>
+        <title>Aufgabenblatt 2</title>
+        <para>Im UML Klassendiagramm sind die wesentlichen Zustände wiedergegeben.  Unsere
+            Hauptklasse ist "Spiel", hier gibt es das öffentliche Attribut "spielId", das
+            gleichzeitig unser Schlüsselattribut ist. Jedes Spiel hat mehrere Spieler bzw.
+            Spielerinnen, die durch die "spielerId" festgelegt sind und genau ein Kartendeck, ein
+            Kartendeck besteht aus mehreren Karten. Ist ein Spieler/ eine Spielerin am Zug, kann sie
+            das Kartendeck bedienen, eine Karte gibt es dabei immer zweimal. Das Spiel wird mit
+            einem Button bedient. Um unser Klassendiagramm in eine XML DTD Datei zu übersetzen
+            transformieren wir jede Klasse in ein eigenes Element. </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="Memory_UML.png"/>
+            </imageobject>
+        </mediaobject>
+    </sect1>
+</article>
