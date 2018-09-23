@@ -62,7 +62,7 @@ Board:
  
       Aufgabenblatt 2:
  
-      A1 - weiter ergänzen, dtd Datei erstellt, DocBook fehlt  ;
+      A1 - weiter ergänzen, dtd Datei erstellt, DocBook in Bearbeitung (Hajar)  ;
       A2 - Melisa - in Arbeit   ;
  
       Aufgabenblatt 3:      >BaseX installieren<
