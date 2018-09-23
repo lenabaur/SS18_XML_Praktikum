@@ -57,13 +57,13 @@ Board:
  
       Aufgabenblatt 1:
  
-       A5 - Melisa - in Arbeit   ;
+       A5 - Melisa - weiter ergänzen, DocBook fehlt   ;
        A6 - Lena - fertig (bitte überprüfen) ;
  
       Aufgabenblatt 2:
  
-      A1 - weiter ergänzen   ;
-      A2 - offen   ;
+      A1 - weiter ergänzen, dtd Datei erstellt, DocBook fehlt  ;
+      A2 - Melisa - in Arbeit   ;
  
       Aufgabenblatt 3:      >BaseX installieren<
  
