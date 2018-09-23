@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!ELEMENT Memory (Spiel*) >
+<!ELEMENT Spiel (Kartendeck, Spieler+)>
+<!ATTLIST Spiel spielID ID #REQUIRED >
+<!ATTLIST Spiel gewinnerID CDATA #IMPLIED >
+<!ATTLIST Spiel beendet (beendet|NichtBeendet) "NichtBeendet">  
+
+<!ELEMENT Spieler (spielerID, punkte)>
+<!ATTLIST Spieler spielerID ID #REQUIRED >
+<!ATTLIST Spieler Name CDATA #REQUIRED >
+<!ATTLIST Spieler amZug (spielt|wartet) "wartet" >
+<!ATTLIST Spieler punkte CDATA #REQUIRED >
+<!ATTLIST Spieler num CDATA #REQUIRED >
+
+<!ELEMENT Kartendeck (Kartenpaar*)>
+<!ELEMENT Kartenpaar (Karte,Karte) >
+<!ELEMENT Karte EMPTY>
+<!ATTLIST Karte kartenID ID #REQUIRED >
+<!ATTLIST Karte Bild CDATA #IMPLIED >
+<!ATTLIST Kartenpaar eingesammelt (eingesammelt|NichtEingesammelt) "NichtEingesammelt" >
+<!ATTLIST Karte aufgedeckt (offen|NichtOffen) "NichtOffen" >
+<!ATTLIST Karte positionZeile CDATA #REQUIRED >
+<!ATTLIST Karte positionSpalte CDATA #REQUIRED >
+
+
