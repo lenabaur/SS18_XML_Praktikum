@@ -67,7 +67,7 @@ Board:
  
       Aufgabenblatt 3:      >BaseX installieren<
  
-      A1 - Lena - weitgehend erledigt          > erweitert UML aus A1 von AB2 <   ;
+      A1 - Lena - weitgehend erledigt, DocBook in Bearbeitung(Melisa)          > erweitert UML aus A1 von AB2 <   ;
       A2 - offen   ;
  
       Aufgabenblatt 4:
