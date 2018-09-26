@@ -2,12 +2,11 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" >
     
-    <a id="Card-32">
-		<desc>Zitrone</desc>
-		<rect height="100%" width="100%" fill="white"/>
-		<ellipse rx="20" ry="30" transform="rotate(30)" cx="70" cy="18" fill="yellow"/>
-		<line x1="67" y1="28" x2="75" y2="18" stroke="darkgreen" stroke-width="2"/>
-		<ellipse rx="25" ry="8" cx="50" cy="18" fill="green"/>
-	</a>
+   <a id="cross">
+        <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
+        <rect x="75" y="75" rx="10" ry="10" width="150" height="150" fill="rgb(224,255,255)" stroke="rgb(255,192,037)" stroke-width="6" />
+        <path d="M 75 75 l 150 150" stroke="rgb(255,192,037)" stroke-width="6"/>
+        <path d="M 225 75 l -150 150" stroke="rgb(255,192,037)" stroke-width="6"/>
+    </a>
 	
 </svg>
