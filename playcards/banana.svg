@@ -2,7 +2,7 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" height="300" width="300">
     <a id="banana">
-        <rect  width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
+  
         
         <path d="M 60 230 q 180 30 180 -150" stroke=" rgb(255,192,037)"
         stroke-width="5" fill="none" />
