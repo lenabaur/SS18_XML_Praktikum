@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<svg xmlns="http://www.w3.org/2000/svg" >
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" >
     <a id="banana">
-
-        <path d="M 60 230 q 180 30 180 -150" stroke=" rgb(255,192,037)"
-        stroke-width="0" fill="none" />
-        <path d="M 60 230 q 70 -80 180 -150" stroke=" rgb(255,192,037)"
-        stroke-width="5" fill="none" />
-        <path d="M 60 230 q 70 -0 180 -150" stroke=" rgb(255,192,037)"
-        stroke-width="5" fill="none" />
-       
-    </a>
+                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
+                    
+                    <path d="M 60 230 q 180 30 180 -150" stroke=" rgb(255,192,037)"
+                        stroke-width="5" fill="none" />
+                    <path d="M 60 230 q 70 -80 180 -150" stroke=" rgb(255,192,037)"
+                        stroke-width="5" fill="none" />
+                    <path d="M 60 230 q 70 -0 180 -150" stroke=" rgb(255,192,037)"
+                        stroke-width="5" fill="none" />
+                    <rect x="227" y="-55" width="8" height="20" stroke="rgb(255,192,037)" stroke-width="5" fill="none" transform="rotate(30 20,40)" />
+                </a>
 </svg>
