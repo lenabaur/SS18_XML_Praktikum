@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<svg xmlns="http://www.w3.org/2000/svg" height="300" width="300">
+<svg xmlns="http://www.w3.org/2000/svg" >
     <a id="banana">
 
         <path d="M 60 230 q 180 30 180 -150" stroke=" rgb(255,192,037)"
