@@ -3,9 +3,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" >
     
     <a id="Card-32">
-		<desc>Ungarische Flagge</desc>
-		<use href="#flagge" y="0" style="fill:#CD2A3E;" ></use>
-		<use href="#flagge" y="33.34" style="fill:#FFFFFF;" ></use>
-		<use href="#flagge" y="66.67" style="fill:#436F4D;" ></use>
+		<desc>Zitrone</desc>
+		<rect height="100%" width="100%" fill="white"/>
+		<ellipse rx="20" ry="30" transform="rotate(30)" cx="70" cy="18" fill="yellow"/>
+		<line x1="67" y1="28" x2="75" y2="18" stroke="darkgreen" stroke-width="2"/>
+		<ellipse rx="25" ry="8" cx="50" cy="18" fill="green"/>
 	</a>
+	
 </svg>
