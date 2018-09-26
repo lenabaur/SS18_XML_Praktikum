@@ -9,7 +9,7 @@
     <xsl:include href="SVG_Abmessung.xsl"/>
     
     <xsl:template match="/">
-        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" >
             <defs>
                 
                 <!-- Rückseite -->
@@ -23,9 +23,14 @@
                     <rect width="150" height="150" fill="url(#grad1)" />
                 </a>
                 
-                <!-- Alle Karten Vorderseite -->
+                <!-- Karte Vorderseite ohne Motiv -->
+                <a id="blancCard">
+                    <rect width="150" height="150" fill="rgb(224,255,255)"  stroke=" black" stroke-width="6" />
+                    
+                </a>
+                
+                <!-- Alle Karten Motiv -->
                 <a id="bahamamama">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     
                     <style>
                         .big { font: bold 50px sans-serif;}
@@ -46,7 +51,6 @@
                 </a>
            
                 <a id="ball">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     <circle cx="150" cy="150" r="80" fill="rgb(255,192,037)"  stroke=" rgb(225,255,255)" />
                     <ellipse cx="187" cy="68" rx="80" ry="50" fill="rgb(225,255,255)" transform="rotate(30 20,40)"/>
                     <ellipse cx="187" cy="68" rx="80" ry="20" fill="rgb(255,192,037)" transform="rotate(30 20,40)"/>
@@ -54,7 +58,7 @@
                 </a>
            
                 <a id="banana">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
+                    
                     
                     <path d="M 60 230 q 180 30 180 -150" stroke=" rgb(255,192,037)"
                         stroke-width="5" fill="none" />
@@ -62,11 +66,9 @@
                         stroke-width="5" fill="none" />
                     <path d="M 60 230 q 70 -0 180 -150" stroke=" rgb(255,192,037)"
                         stroke-width="5" fill="none" />
-                    <rect x="227" y="-55" width="8" height="20" stroke="rgb(255,192,037)" stroke-width="5" fill="none" transform="rotate(30 20,40)" />
                 </a>
                 
                 <a id="bars">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     
                     <path d="M 30 30 l 240 240" stroke="rgb(255,192,037)" stroke-width="6"/>
                     <path d="M 90 30 l 180 180" stroke="rgb(255,192,037)" stroke-width="6"/>
@@ -80,20 +82,17 @@
                 </a>
                 
                 <a id="cross">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     <rect x="75" y="75" rx="10" ry="10" width="150" height="150" fill="rgb(224,255,255)" stroke="rgb(255,192,037)" stroke-width="6" />
                     <path d="M 75 75 l 150 150" stroke="rgb(255,192,037)" stroke-width="6"/>
                     <path d="M 225 75 l -150 150" stroke="rgb(255,192,037)" stroke-width="6"/>
                 </a>
             
                 <a id="elips">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     <ellipse cx="150" cy="150" rx="110" ry="40" fill="rgb(255,192,037)" />
                     <ellipse cx="140" cy="150" rx="80" ry="20" fill="rgb(224,255,255)" />
                 </a>
                
                 <a id="flower">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     <circle cx="150" cy="100" r="38" fill="rgb(255,192,037)" />
                     <circle cx="150" cy="200" r="38" fill="rgb(255,192,037)" />
                     <circle cx="100" cy="150" r="38" fill="rgb(255,192,037)" />
@@ -102,9 +101,6 @@
                 </a>
                 
                 <a id="tree">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
-                    
-                    
                     <circle cx="150" cy="115" r="50" fill="rgb(225,255,255)"  stroke=" rgb(255,192,037)" stroke-width="3" />
                     <polygon points="150,260 120,150 180,150" style="fill:rgb(255,192,037);stroke:black;stroke-width:2" />
                     <circle cx="125" cy="130" r="35" fill="rgb(225,255,255)"  stroke=" rgb(255,192,037)" stroke-width="3" />
@@ -112,13 +108,10 @@
                 </a>
               
                 <a id="outline">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     <rect x="75" y="75" rx="10" ry="10" width="150" height="150" fill="rgb(224,255,255)" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="6" />
                 </a>
                
                 <a id="quater">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
-                    
                     <rect x="40" y="40" rx="10" ry="10" width="120" height="120" fill="rgb(224,255,255)" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="6" />
                     <rect x="140" y="40" rx="10" ry="10" width="120" height="120" fill="rgb(224,255,255)" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="6" />
                     <rect x="40" y="140" rx="10" ry="10" width="120" height="120" fill="rgb(224,255,255)" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="6" />
@@ -140,7 +133,6 @@
                 </a>
                 
                 <a id="sun">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)"  stroke=" black" stroke-width="6" />
                     
                     <polygon points="150, 30 130,150 170,150" fill="rgb(255,192,037)" />
                     <polygon points="150, 270 130,150 170,150" fill="rgb(255,192,037)" />
@@ -153,7 +145,6 @@
                 </a>
                 
                 <a id="tree">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     
                     <polygon points="150,130 120,260 180,260" style="fill:rgb(255,192,037);stroke:black;stroke-width:2" />
                     
@@ -180,22 +171,24 @@
                 </a>
                 
                 <a id="triangel">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     <polygon points="100,50 140,250 250,210" style="fill:rgb(255,192,037);stroke:black;stroke-width:2" />
                 </a>
                 
                 <a id="waves">
-                    <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" stroke=" black" stroke-width="6" />
                     <path d="M 30 200 q 200 -160 100 26" stroke="rgb(255,192,037)"
                         stroke-width="7" fill="none" />
                     <path d="M 100 230 q 200 -160 100 26" stroke="rgb(255,192,037)" stroke-width="7" fill="none" />
                     <path d="M 130 180 q 200 -160 100 26" stroke="rgb(255,192,037)" stroke-width="7" fill="none" />
                 </a>
                 
-                <!-- Buttons -->
-                <a id="stats">
+                <!-- Buttons ohne Motiv -->
+                <a id="blancButton">
                     <circle cx="40" cy="40" r="38" stroke="black" stroke-width="3" fill="rgb(255,192,037)" 
                     />
+                </a>
+                
+                <!-- Buttons Motiv-->
+                <a id="stats">
                     
                     <style>
                         .big { font: bold 27px sans-serif;}
@@ -205,9 +198,6 @@
                 </a>
                 
                 <a id="start">
-                    <circle cx="40" cy="40" r="38" stroke="black" stroke-width="3" fill="rgb(255,192,037)" 
-                    />
-                    
                     <style>
                         .big { font: bold 27px sans-serif;}
                     </style>
@@ -216,18 +206,12 @@
                 </a>
                 
                 <a id="player">
-                    <circle cx="40" cy="40" r="38" stroke="black" stroke-width="3" fill="rgb(255,192,037)" 
-                    />
-                    
                     <polygon points="40,25 25,70 55,70" style="fill:rgb(225,255,255);stroke:black;stroke-width:3" />
                     <circle cx="40" cy="25" r="11" stroke="black" stroke-width="3" fill="rgb(225,255,255)" 
                     />
                 </a>
                 
                 <a id="exit">
-                    <circle cx="40" cy="40" r="38" stroke="black" stroke-width="3" fill="rgb(255,192,037)" 
-                    />
-                    
                     <style>
                         .big { font: bold 27px sans-serif;}
                     </style>
