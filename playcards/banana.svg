@@ -4,7 +4,7 @@
     <a id="banana">
 
         <path d="M 60 230 q 180 30 180 -150" stroke=" rgb(255,192,037)"
-        stroke-width="5" fill="none" />
+        stroke-width="0" fill="none" />
         <path d="M 60 230 q 70 -80 180 -150" stroke=" rgb(255,192,037)"
         stroke-width="5" fill="none" />
         <path d="M 60 230 q 70 -0 180 -150" stroke=" rgb(255,192,037)"
