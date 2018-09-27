@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<svg xmlns="http://www.w3.org/2000/svg" height="150" width="150">
+<svg xmlns="http://www.w3.org/2000/svg" >
     
     <a id="bars">
         <rect  rx="10" ry="10" width="150" height="150" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
