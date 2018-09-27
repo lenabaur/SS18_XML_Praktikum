@@ -10,25 +10,25 @@
         <gewinnerID>0</gewinnerID>
         <beendet stat="false"></beendet>
         <button>
-            <buttonID>1</button>
+            <buttonID>1</buttonID>
             <buttonName>Start</buttonName>
             <buttonBild></buttonBild>
             <gedrueckt stat="false"></gedrueckt>
         </button>
         <button>
-            <buttonID>2</button>
+            <buttonID>2</buttonID>
             <buttonName>Exit</buttonName>
             <buttonBild></buttonBild>
             <gedrueckt stat="false"></gedrueckt>
         </button>
         <button>
-            <buttonID>3</button>
+            <buttonID>3</buttonID>
             <buttonName>Player</buttonName>
             <buttonBild></buttonBild>
             <gedrueckt stat="false"></gedrueckt>
         </button>
         <button>
-            <buttonID>4</button>
+            <buttonID>4</buttonID>
             <buttonName>Stats</buttonName>
             <buttonBild></buttonBild>
             <gedrueckt stat="false"></gedrueckt>
