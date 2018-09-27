@@ -2,8 +2,7 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" height="80" width="80">
     <a id="player">
-        <circle cx="40" cy="40" r="38" stroke="black" stroke-width="3" fill="rgb(255,192,037)" 
-        />
+        
         
         <polygon points="40,25 25,70 55,70" style="fill:rgb(225,255,255);stroke:black;stroke-width:3" />
         <circle cx="40" cy="25" r="11" stroke="black" stroke-width="3" fill="rgb(225,255,255)" 
