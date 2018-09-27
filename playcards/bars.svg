@@ -3,7 +3,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" >
 
 <a id="ball">
-                    <circle cx="150" cy="150" r="80" fill="rgb(255,192,037)"  stroke=" rgb(225,255,255)" />
+                    <circle cx="5" cy="5" r="80" fill="rgb(255,192,037)"  stroke=" rgb(225,255,255)" />
                     <ellipse cx="187" cy="68" rx="80" ry="50" fill="rgb(225,255,255)" transform="rotate(30 20,40)"/>
                     <ellipse cx="187" cy="68" rx="80" ry="20" fill="rgb(255,192,037)" transform="rotate(30 20,40)"/>
                     
