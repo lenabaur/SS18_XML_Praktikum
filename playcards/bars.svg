@@ -3,7 +3,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" >
 
 <a id="bars">
-                   
+                    
+                    <rect  rx="10" ry="10" width="150" height="150"  stroke=" black" stroke-width="6" />
+                
                     
                     
                     <path d="M 5 5 l 140 140" stroke="rgb(255,192,037)" stroke-width="6"/>
