@@ -2,11 +2,11 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" >
 
-  <xsl:variable name="width" select="150"/>
+ 
   
 <a id="bars">
                     
-              
+               <xsl:variable name="width" select="150"/>
                 <rect  rx="10" ry="10" width="100%" height="100%" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
                     
                     
