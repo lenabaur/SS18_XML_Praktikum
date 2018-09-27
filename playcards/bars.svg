@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <svg xmlns="http://www.w3.org/2000/svg" >
-<a id="bars">
-          
-<a id="bahamamama">
+
+<a id="ball">
+                    <circle cx="150" cy="150" r="80" fill="rgb(255,192,037)"  stroke=" rgb(225,255,255)" />
+                    <ellipse cx="187" cy="68" rx="80" ry="50" fill="rgb(225,255,255)" transform="rotate(30 20,40)"/>
+                    <ellipse cx="187" cy="68" rx="80" ry="20" fill="rgb(255,192,037)" transform="rotate(30 20,40)"/>
                     
-                    <style>
-                        .big { font: bold 50px sans-serif;}
-                    </style>
-                    <text x="40" y="120" stroke="black" fill="rgb(255,192,037)" class="big">BAHAMA
-                        <tspan x="70" y="150">MAMA</tspan>
-                    </text>
                 </a>
          
     
