@@ -12,7 +12,7 @@
         
         <path d="M 210 30 l -180 180" stroke="rgb(225,255,255)" stroke-width="6"/>
         <path d="M 150 30 l -120 120" stroke="rgb(225,255,255)" stroke-width="6"/>
-        <path d="M 120 4 l -85 85" stroke="rgb(225,255,255)" stroke-width="6"/>
+        <path d="M 90 4 l -85 85" stroke="rgb(225,255,255)" stroke-width="6"/>
     </a>
     
 </svg>
