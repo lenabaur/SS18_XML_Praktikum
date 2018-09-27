@@ -5,8 +5,8 @@
     version="2.0">
     
     <!-- Höhe und Breite des Kartenbereichs -->
-    <xsl:variable name="height" select="1000"/>
-    <xsl:variable name="weighth" select="1000"/>
+    <xsl:variable name="height" select="'100%'"/>
+    <xsl:variable name="weighth" select="'100%'"/>
     <xsl:variable name="coloums" select="3"/>
     <xsl:variable name="rows" select="6"/>
     
