@@ -23,9 +23,10 @@ Docbook:
     Hilfreiche Webseiten:
       https://tdg.docbook.org/tdg/5.2/ch02.html
       https://www.data2type.de/xml-xslt-xslfo/docbook/docbook-einstieg/verweis-auf-ein-docbook5-schem/
+      http://docs.basex.org/wiki/File_Module
       
     Fragen:
-  
+
   
 Playcards:
   18 Karten. Buttons (start,exit,stats,player)
