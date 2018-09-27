@@ -8,7 +8,7 @@
         <style>
             .big { font: bold 27px sans-serif;}
         </style>
-        <text x="50%" y="48" stroke="black" fill="rgb(225,255,255)" class="big">Stats
+        <text x="0%" y="48" stroke="black" fill="rgb(225,255,255)" class="big">Stats
         </text>
     </a>
 </svg>
