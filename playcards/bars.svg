@@ -2,11 +2,14 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" >
 
-<a id="ball">
-                    <circle cx="75" cy="75" r="70" fill="rgb(255,192,037)"  stroke=" rgb(225,255,255)" />
-                    <ellipse cx="85" cy="40" rx="70" ry="35" fill="rgb(225,255,255)" transform="rotate(30 20,40)"/>
-                    <ellipse cx="85" cy="40" rx="70" ry="20" fill="rgb(255,192,037)" transform="rotate(30 20,40)"/>
+<a id="bahamamama">
                     
+                    <style>
+                        .big { font: bold 50px sans-serif;}
+                    </style>
+                    <text x="40" y="120" stroke="black" fill="rgb(255,192,037)" class="big">BAHAMA
+                        <tspan x="70" y="150">MAMA</tspan>
+                    </text>
                 </a>
          
     
