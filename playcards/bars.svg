@@ -3,7 +3,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" >
 
 <a id="cross">
-                    <rect x="75" y="75" rx="10" ry="10" width="150" height="150" fill="rgb(224,255,255)" stroke="rgb(255,192,037)" stroke-width="6" />
+                    <rect  rx="10" ry="10" width="150" height="150" fill="rgb(224,255,255)" stroke="rgb(255,192,037)" stroke-width="6" />
                     <path d="M 75 75 l 150 150" stroke="rgb(255,192,037)" stroke-width="6"/>
                     <path d="M 225 75 l -150 150" stroke="rgb(255,192,037)" stroke-width="6"/>
                 </a>
