@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+               "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+               
+<!-- WIRD IM LAUFE DER ARBEIT ERGÄNZT -->
+<book>
+    <bookinfo>
+        <title>Memory</title>
+        <authorgroup>
+            <author>
+                <firstname>Melisa</firstname>
+                <surname>Uluer</surname>
+            </author>
+            <author>
+                <firstname>Lena</firstname>
+                <surname>Bauer</surname>
+            </author>
+            <author>
+                <firstname>Hajar</firstname>
+                <surname>A</surname>
+            </author>
+        </authorgroup>
+    </bookinfo>
+    <chapter>
+        <title>Auf einen Blick</title>
+        <section>
+            <title>Allgemein zum Spiel</title>
+            <para>
+                Anzahl Spieler: 2-6
+            </para>
+            <para>
+                Alter: ab 4 Jahren
+            </para>
+            <para>
+                Genre: Merkspiel, Jeder gegen jeden
+            </para>
+            <para>
+                Thema: Gesellschaft
+            </para>
+        </section>
+        <section>
+            <title>Die Spielregeln</title>
+            <para>
+                Es treten 2-6 Spieler gegeneinander an. Gespielt wird das Spiel gemeinsam in einem Browser-Fenster.
+                Zunächst werden alle Karten gründlich vermischt und verdeckt auf den Tisch gelegt.
+                Der Spieler an der Reihe darf nun zwei willkürliche Karten umdrehen. Falls diese das selbe Bild haben,
+                darf der Spieler die Karte auf seinen Stapel legen und nochmal zwei Karten aufdecken. 
+                Sind zwei Karten unterschiedlich ist der nächste Spieler an der Reihe.            
+                Das Ziel jedes einzelnen Spielers ist es so viele Paare wie möglich zu finden.
+                Der Spieler mit den meisten Paaren gewinnt die Runde.
+            </para>
+        </section>        
+    </chapter>
+    <chapter>
+        <title>Aufbau</title>
+        <section>
+            <title>Lounge (Hauptmenü)</title>
+            <para>
+                In der Lounge können sich Spieler anmelden oder sich registrieren.
+            </para>
+            <itemizedlist>
+                <listitem>
+                    <para>Anmelden</para>
+                    <para>
+                        Bereits registrierte Spieler können sich hier mit einem 
+                        Spielernamen und Passwort anmelden.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>Registrieren</para>
+                    <para>
+                        Hier können sich neue Spieler registrieren. Hierzu wird seinerseits ein Spielername
+                        und ein Passwort festgelegt. 
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </section>
+        <section>
+            <title>Untermenü</title>
+            <para>
+                Nach der Anmeldung kann der Spieler im Untermenü zwischen verschiedenen Optionen wählen.
+            </para>
+            <itemizedlist>
+                <listitem>
+                    <para>Highscore</para>
+                    <para>
+                        Hier werden die drei bestgespielten Spiele des Spielers in absteigender Reihenfolge
+                        abgebildet.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>Neues Spiel</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>Anzahl der Spieler</para>
+                            <orderedlist>
+                                <listitem>
+                                    <para>2 Spieler</para>
+                                </listitem>
+                                <listitem>
+                                    <para>3 Spieler</para>
+                                </listitem>
+                                <listitem>
+                                    <para>4 Spieler</para>
+                                </listitem>
+                                <listitem>
+                                    <para>5 Spieler</para>
+                                </listitem>
+                                <listitem>
+                                    <para>6 Spieler</para>
+                                </listitem>
+                            </orderedlist>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>Schwierigkeitslevel</para>
+                                    <orderedlist numeration="arabic">
+                                        <listitem>
+                                            <para>Level 1: 12 Karten</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Level 2: 16 Karten</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Level 3: 24 Karten</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Level 4: 32 Karten</para>
+                                        </listitem>
+                                    </orderedlist>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>Spiel laden</para>
+                    <para>
+                        Vorher gespeicherte und vorzeitig beendete Spiele können hier weitergespielt werden. 
+                    </para>                 
+                </listitem>
+                <listitem>
+                    <para>Abmelden</para>
+                    <para>Der Spieler kann sich abmelden und wird zur Lounge weitergeleitet.</para>
+                </listitem>
+            </itemizedlist>
+        </section>
+    </chapter>
+    <chapter>
+        <title>Das Spiel</title>
+        <section>
+            <title>Der Tisch</title>
+            <para>
+                Auf dem Tisch liegen alle verdeckten Karten.
+            </para>
+            <itemizedlist>
+                <listitem>
+                    <para>Punktestand</para>
+                    <para>Der aktuelle Punktestand des Spielers wird ihm angezeigt.</para>
+                </listitem>
+                <listitem>
+                    <para>Spiel speichern</para>
+                    <para>Das Spiel wird zu dem aktuellen Zeitpunkt mit Angaben zu Datum und Uhrzeit gespeichert 
+                        und kann später unter "Spiel laden" fortgesetzt werden.</para>
+                </listitem>
+                <listitem>
+                    <para>Spiel beenden</para>
+                    <para>Das aktuelle Spiel wird beendet. Es erfolgt kein Speichern.</para>
+                </listitem>
+            </itemizedlist>
+        </section>
+    </chapter>
+    <chapter>
+        <title>
+            Wesentliche Zustände
+        </title>
+        <para>
+            Im UML Klassendiagramm werden die wesentlichen Zustände des Spiels wiedergegeben.  
+            Unsere Hauptklasse ist "Spiel", hier gibt es das öffentliche Attribut "spielId", das
+            gleichzeitig unser Schlüsselattribut ist. Jedes Spiel hat mehrere Spieler bzw.
+            Spielerinnen, die durch die "spielerId" festgelegt. Noch dazu kommen die Attribute "name", "amZug", "punkte" und "num".
+            Ist ein Spieler/ eine Spielerin am Zug, kann er/sie das Kartendeck bedienen.
+            Außerdem besitzt jedes Spiel ein Kartendeck, welches aus mehreren Karten besteht. 
+            Eine Karte wird identifiziert durch die "kartenID" mit dem dazugehörigen Kartenpaar "partner". Außschlaggebend ist noch, ob die Karte
+            aufgedeckt und eventuell schon eingesammelt wurde.
+            Während dem Spiel stehen verschiedene Button zur Verfügung, um z.B. das Spiel zu beenden oder zu pausieren. Die Buttons werden identifierzt durch 
+            das Attribut "buttonId".
+        </para>
+        <mediaobject>        
+            <imageobject>
+                <imagedata fileref="uml1.JPG" format="JPG"/>
+            </imageobject>
+            </mediaobject> 
+        <para>
+            Um unser UML Diagramm in eine XML DTD Datei zu übersetzen, wird jede Klasse als ein Element
+            mit deren entsprechenden Attributen behandelt.
+ 
+        </para>
+  </chapter>
+    
+    
+</book>        
