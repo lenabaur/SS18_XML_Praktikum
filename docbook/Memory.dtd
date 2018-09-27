@@ -2,28 +2,34 @@
 
 
 <!ELEMENT Memory (Spiel*) >
-<!ELEMENT Spiel (Kartendeck, Spieler+)>
+<!ELEMENT Spiel (Kartendeck, SpielerAnz)>
 <!ATTLIST Spiel 
     spielID ID #REQUIRED 
-    gewinnerID CDATA #IMPLIED 
-    beendet (beendet|NichtBeendet) "NichtBeendet">  
+    gewinnerID IDREF #IMPLIED 
+    beendet (beendet|NichtBeendet) #REQUIRED>  
 
+<!ELEMENT SpielerAnz (Spieler+)>
 <!ELEMENT Spieler EMPTY>
 <!ATTLIST Spieler 
     spielerID ID #REQUIRED 
     Name CDATA #REQUIRED 
-    amZug (spielt|wartet) "wartet" 
+    amZug (spielt|wartet) #REQUIRED 
     punkte CDATA #REQUIRED 
     num CDATA #REQUIRED >
+    
+<!ELEMENT Kartendeck (Karte+) >
+<!ATTLIST Kartendeck
+    AnzKarten CDATA #REQUIRED
+    Zeile CDATA #REQUIRED
+    Spalte CDATA #REQUIRED
+>
 
-<!ELEMENT Kartendeck (Kartenpaar*)>
-<!ELEMENT Kartenpaar (Karte,Karte) >
-<!ATTLIST Kartenpaar eingesammelt (eingesammelt|NichtEingesammelt) "NichtEingesammelt" >
 <!ELEMENT Karte EMPTY>
 <!ATTLIST Karte 
     kartenID ID #REQUIRED 
+    paar IDREF #REQUIRED
     Bild CDATA #IMPLIED 
-    aufgedeckt (offen|NichtOffen) "NichtOffen"
+    aufgedeckt (offen|NichtOffen) #REQUIRED
     positionZeile CDATA #REQUIRED
     positionSpalte CDATA #REQUIRED>
 
