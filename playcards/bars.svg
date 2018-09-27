@@ -14,4 +14,16 @@
         <path d="M 150 30 l -120 120" stroke="rgb(225,255,255)" stroke-width="6"/>
         <path d="M 90 30 l -60 60" stroke="rgb(225,255,255)" stroke-width="6"/>
     </a>
+    <g id="Card-Back">
+		<desc>SpielkarteRückseite</desc>
+		<defs>
+			<pattern id="m" x="2" y="2" width="4" height="4"
+				patternTransform="scale(1,2) rotate(45)" patternUnits="userSpaceOnUse">
+				<rect id="square" width="2" height="2" fill="#990033" />
+				<use href="#square" transform="translate(1,1)" />
+			</pattern>
+			<rect id="motiv" width="100%" height="100%" fill="url(#m)" />
+		</defs>
+		<use href="#motiv" x="0%" y="0%" />
+	</g>
 </svg>
