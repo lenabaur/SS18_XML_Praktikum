@@ -7,7 +7,7 @@
                     <style>
                         .big { font: bold 50px sans-serif;}
                     </style>
-                    <text x="5" y="120" stroke="black" fill="rgb(255,192,037)" class="big">BAHAMA
+                    <text x="5" y="5" stroke="black" fill="rgb(255,192,037)" class="big">BAHAMA
                         <tspan x="70" y="150">MAMA</tspan>
                     </text>
                 </a>
