@@ -2,6 +2,8 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" >
 
+  <xsl:variable name="width" select="150"/>
+  
 <a id="bars">
                     
               
