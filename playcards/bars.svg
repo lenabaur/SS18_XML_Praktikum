@@ -5,6 +5,7 @@
     <a id="bars">
         <rect  rx="10" ry="10" width="150" height="150" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
         
+        <path d="M 10 10 l 140 140" stroke="rgb(255,192,037)" stroke-width="6"/>
         <path d="M 90 30 l 180 180" stroke="rgb(255,192,037)" stroke-width="6"/>
         <path d="M 150 30 l 120 120" stroke="rgb(255,192,037)" stroke-width="6"/>
         <path d="M 210 30 l 60 60" stroke="rgb(255,192,037)" stroke-width="6"/>
@@ -14,4 +15,5 @@
         <path d="M 150 30 l -120 120" stroke="rgb(225,255,255)" stroke-width="6"/>
         <path d="M 90 30 l -60 60" stroke="rgb(225,255,255)" stroke-width="6"/>
     </a>
+    
 </svg>
