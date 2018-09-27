@@ -4,7 +4,7 @@
 
 <a id="ball">
                     <circle cx="75" cy="75" r="70" fill="rgb(255,192,037)"  stroke=" rgb(225,255,255)" />
-                    <ellipse cx="70" cy="38" rx="80" ry="50" fill="rgb(225,255,255)" transform="rotate(30 20,40)"/>
+                    <ellipse cx="75" cy="38" rx="70" ry="40" fill="rgb(225,255,255)" transform="rotate(30 20,40)"/>
                     <ellipse cx="187" cy="68" rx="80" ry="20" fill="rgb(255,192,037)" transform="rotate(30 20,40)"/>
                     
                 </a>
