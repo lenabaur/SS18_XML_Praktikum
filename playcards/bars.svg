@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<svg xmlns="http://www.w3.org/2000/svg" height="300" width="300">
-    <a id="bars">
-        <rect x="25" y="25" rx="10" ry="10" width="250" height="250" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="6" />
-        
-        <path d="M 30 30 l 240 240" stroke="rgb(255,192,037)" stroke-width="6"/>
-        <path d="M 90 30 l 180 180" stroke="rgb(255,192,037)" stroke-width="6"/>
-        <path d="M 150 30 l 120 120" stroke="rgb(255,192,037)" stroke-width="6"/>
-        <path d="M 210 30 l 60 60" stroke="rgb(255,192,037)" stroke-width="6"/>
-
-        <path d="M 270 30 l -240 240" stroke="rgb(225,255,255)" stroke-width="6"/>
-        <path d="M 210 30 l -180 180" stroke="rgb(225,255,255)" stroke-width="6"/>
-        <path d="M 150 30 l -120 120" stroke="rgb(225,255,255)" stroke-width="6"/>
-        <path d="M 90 30 l -60 60" stroke="rgb(225,255,255)" stroke-width="6"/>
-    </a>
+<svg xmlns="http://www.w3.org/2000/svg" >
+    
     <g id="Card-Back">
 		<desc>SpielkarteRückseite</desc>
 		<defs>
