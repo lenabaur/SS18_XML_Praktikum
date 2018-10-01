@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" height="80" width="80">
+    <a id="stats">
+        <circle cx="40" cy="40" r="38" stroke="black" stroke-width="3" fill="rgb(255,192,037)" 
+        />
+        
+        <style>
+            .big { font: bold 27px sans-serif;}
+        </style>
+        <text x="10%" y="60%" stroke="black" fill="rgb(225,255,255)" class="big">Stats
+        </text>
+    </a>
+</svg>
