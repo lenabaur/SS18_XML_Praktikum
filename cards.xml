@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Definition of the different cards -->
+
+<cards height="105" width="105">
+    <card id="back">
+       <desc>Rückseite</desc>
+       <defs>
+           <defs>
+               <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                   <stop offset="0%" style="stop-color:rgb(224,255,255);stop-opacity:1" />
+                   <stop offset="100%" style="stop-color:rgb(255,192,037);stop-opacity:1"/>
+               </linearGradient>
+           </defs>
+           <rect width="100" height="100"  fill="url(#grad1)" /> 
+       </defs>
+    </card> 
+    
+    <card id="allblue">
+        <desc>Allblue</desc>
+        <defs>
+        <rect rx="10" ry="10" width="100" height="100" fill="rgb(225,255,255)" stroke=" black" stroke-width="4" />
+        </defs>     
+    </card>
+    
+    <card id="allyellow">
+        <desc>Allyellow</desc>
+        <defs>
+        <rect rx="10" ry="10" width="100" height="100" fill="rgb(255,192,037)" stroke=" black" stroke-width="4" />
+        </defs>
+    </card>
+    
+    <card id="bahamamama">
+        <desc>Bahamamama</desc>
+        <defs>
+            <rect  rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="3" />      
+            <style>
+                .big { font: bold 20px sans-serif;}
+            </style>
+          <defs>  <text x="5" y="40" stroke="black" fill="rgb(255,192,037)" class="big">BAHAMA
+                <tspan x="15" y="70">MAMA</tspan> 
+            </text>
+          </defs>    
+        </defs>
+    </card>
+    
+    <card id="banana">
+        <desc>Banana</desc>
+        <defs>              
+        <rect rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+        <path d="M 30 70 q 30 30 50 -50" stroke=" rgb(255,192,037)" stroke-width="2" fill="none" />
+        </defs>
+    </card>
+
+    <card id="hawaii">
+        <desc>Hawaii</desc>
+        <defs>
+            <rect  rx="10" ry="10" width="100" height="100" fill="#FAF0E6" fill-opacity="0.4" stroke=" black" stroke-width="3" />
+            <style>
+                .big { font: bold 20px sans-serif;}
+            </style>
+            <text x="15" y="40" stroke="black" fill="rgb(255,192,037)" class="big">HAWA
+                <tspan x="40" y="70">II</tspan>
+            </text>
+        </defs>
+    </card>
+    
+    <card id="ball">
+        <desc>Ball</desc>
+        <defs>
+            <rect  rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <circle cx="50" cy="50" r="40" fill="rgb(255,192,037)"  stroke=" rgb(225,255,255)" />
+        </defs>
+    </card>
+    
+    <card id="cross">
+        <desc>Cross</desc>
+        <defs>
+            <rect  rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <rect x="25" y="25" rx="10" ry="10" width="50" height="50" fill="rgb(224,255,255)" stroke="rgb(255,192,037)" stroke-width="4" />
+        </defs>
+    </card>
+    
+    <card id ="elips">
+        <desc>Elips</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <ellipse cx="50" cy="50" rx="40" ry="20" fill="rgb(255,192,037)" />
+            <ellipse cx="50" cy="50" rx="30" ry="10" fill="rgb(224,255,255)" />
+        </defs>
+    </card>
+    
+    <card id="flower">
+        <desc>Flower</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <circle cx="48" cy="30" r="15" fill="rgb(255,192,037)" />
+            <circle cx="30" cy="50" r="15" fill="rgb(255,192,037)" />
+            <circle cx="48" cy="65" r="15" fill="rgb(255,192,037)" />
+            <circle cx="67" cy="50" r="15" fill="rgb(255,192,037)" />
+            <circle cx="48" cy="48" r="15" fill="rgb(224,255,255)" />
+        </defs>
+    </card>
+    
+    <card id="ice">
+        <desc>Ice</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <circle cx="45" cy="28" r="20" fill="rgb(225,255,255)"  stroke=" rgb(255,192,037)" stroke-width="3" />
+            <polygon points="40,90 20,40 70,40" style="fill:rgb(255,192,037);stroke:black;stroke-width:2" />
+            <circle cx="25" cy="27" r="12" fill="rgb(225,255,255)"  stroke=" rgb(255,192,037)" stroke-width="3" />
+            <circle cx="65" cy="28" r="10" fill="rgb(225,255,255)"  stroke=" rgb(255,192,037)" stroke-width="3" />
+        </defs>
+    </card>
+    
+    <card id="love">
+        <desc>Love</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" stroke=" black" stroke-width="4" />
+            <style>
+                .big { font: bold 40px sans-serif;}
+            </style>
+            <text x="15" y="40" stroke="black" fill="rgb(255,192,037)" class="big">L O
+                <tspan x="15" y="80">V E</tspan>
+            </text>
+        </defs>
+    </card>
+    
+    <card id="outline">
+        <desc>Outline</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="#FFF0F5" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <rect x="25" y="23" rx="10" ry="10" width="50" height="50" fill="#E6E6FA" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="4" />
+        </defs>
+    </card>
+    
+    <card id="quater">
+        <desc>Quater</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="3" />  
+            <rect x="25" y="20" rx="10" ry="10" width="30" height="30" fill="rgb(224,255,255)" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="3" />
+            <rect x="45" y="20" rx="10" ry="10" width="30" height="30" fill="rgb(224,255,255)" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="3" />
+            <rect x="25" y="45" rx="10" ry="10" width="30" height="30" fill="rgb(224,255,255)" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="3" />
+            <rect x="45" y="45" rx="10" ry="10" width="30" height="30" fill="rgb(224,255,255)" fill-opacity="0.4" stroke="rgb(255,192,037)" stroke-width="3" />    
+        </defs>
+    </card>
+    
+    <card id="sun">
+        <desc>Sun</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="#FFDEAD" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <circle cx="48" cy="30" r="15" fill="#FFF0F5" />
+            <circle cx="30" cy="50" r="15" fill="#FFF0F5" />
+            <circle cx="48" cy="65" r="15" fill="#FFF0F5" />
+            <circle cx="67" cy="50" r="15" fill="#FFF0F5" />
+            <circle cx="48" cy="48" r="15" fill="#E6E6FA" />                              
+        </defs>
+    </card>
+    
+    <card id="stroke">
+        <desc>Stroke</desc>
+        <defs>
+            <rect  rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <path d="M 10 10 l 80 0" stroke="rgb(225,255,255)" stroke-width="6"/>
+            <path d="M 10 10 l 80 0" stroke="rgb(255,192,037)" stroke-width="2"/>
+            <path d="M 10 17 l 80 0" stroke="rgb(225,255,255)" stroke-width="6"/>
+            <path d="M 10 17 l 80 0" stroke="rgb(255,192,037)" stroke-width="3"/>
+            <path d="M 10 37 l 80 0" stroke="rgb(255,192,037)" stroke-width="8"/>
+            <path d="M 10 77 l 80 0" stroke="rgb(255,192,037)" stroke-width="6"/>
+            <path d="M 10 77 l 80 0" stroke="rgb(225,255,255)" stroke-width="4"/>
+            <path d="M 10 127 l 80 0" stroke="rgb(255,192,037)" stroke-width="8"/>
+            <path d="M 10 127 l 80 0" stroke="rgb(225,255,255)" stroke-width="2"/>
+        </defs>
+    </card>
+    
+    <card id="tree">
+        <desc>Tree</desc>
+        <defs>
+            <rect  rx="10" ry="10" width="100" height="100" fill="#FAF0E6" fill-opacity="0.4" stroke=" black" stroke-width="3" />
+            <style>
+                .big { font: bold 20px sans-serif;}
+            </style>
+            <text x="15" y="40" stroke="black" fill="rgb(255,192,037)" class="big">PALM
+                <tspan x="40" y="70">LOVE</tspan>
+            </text>
+        </defs>
+    </card>   
+    
+    <card id="triangle">
+        <desc>Triangle</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" fill-opacity="0.4" stroke=" black" stroke-width="4" />
+            <polygon points="20,20 20,80,80,70" style="fill:rgb(255,192,037);stroke:black;stroke-width:2" />
+        </defs>
+    </card>
+    
+    <card id="waves">
+        <desc>Waves</desc>
+        <defs>
+            <rect rx="10" ry="10" width="100" height="100" fill="rgb(224,255,255)" stroke=" black" stroke-width="4" />
+            <path d="M 10 60 q 80 -70 30 12" stroke="rgb(255,192,037)" stroke-width="4" fill="none"/>
+            <path d="M 30 50 q 80 -70 30 12" stroke="rgb(255,192,037)" stroke-width="4" fill="none"/>
+            <path d="M 40 40 q 80 -70 30 12" stroke="rgb(255,192,037)" stroke-width="4" fill="none"/>
+        </defs>
+    </card>
+</cards>

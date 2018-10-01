@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="game.xsl"?>
-<!DOCTYPE board SYSTEM "board.dtd">
 
 <memory>
-
     <spiel>
         <spielID>0</spielID>
+        <!-- Spiel Anzahl muss vllt weg ? -->
         <spielerAnzahl>2</spielerAnzahl>
         <gewinnerID>0</gewinnerID>
         <beendet stat="false"></beendet>
@@ -35,27 +34,29 @@
         </button>               
     </spiel>
 
-    <spieler num="1">
-        <spielerId>0</spielerId>
-        <name>SpielerName</name>
+    <spieler>
+        <spielerId>1</spielerId>
+        <!-- Spieler Name muss man eingeben -->
+        <!-- Funktionen, damit alles dynamisch ist -->
+        <spielerName>SpielerName</spielerName>
         <amZug stat="false"></amZug>
         <punkte>0</punkte>
     </spieler>
-    <spieler num="2">
-        <spielerId>0</spielerId>
-        <name>SpielerName</name>
+    <spieler>
+        <spielerId>2</spielerId>
+        <spielerName>SpielerName</spielerName>
         <amZug stat="false"></amZug>
         <punkte>0</punkte>
     </spieler>
-    <spieler num="3">
-        <spielerId>0</spielerId>
-        <name>SpielerName</name>
+    <spieler>
+        <spielerId>3</spielerId>
+        <spielerName>SpielerName</spielerName>
         <amZug stat="false"></amZug>
         <punkte>0</punkte>
     </spieler>
-    <spieler num="4">
-        <spielerId>0</spielerId>
-        <name>SpielerName</name>
+    <spieler>
+        <spielerId>4</spielerId>
+        <spielerName>SpielerName</spielerName>
         <amZug stat="false"></amZug>
         <punkte>0</punkte>
     </spieler>
