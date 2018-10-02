@@ -1,0 +1,1 @@
+db:create("DB", "/home/lena/Schreibtisch/bachelor seminar/board")
