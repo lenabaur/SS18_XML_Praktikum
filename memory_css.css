@@ -1,0 +1,19 @@
+html{
+    text-align: center;
+}
+button {
+    color: black;
+    padding: 5px;
+    background-color: #ADD6D8;
+    box-shadow: 0px 5px 8px 6px rgba(0,0,0,0.4);
+    border: solid 1px #ADD6D8;
+    border-radius: 5px;
+    font-family:arial, helvetica, sans-serif;  
+    transition: ease-in-out all 300ms;
+}
+button:hover{
+    color: #ADD6D8;
+    background-color: #FFF;
+    transform: translate(0px, -10px);
+    box-shadow: 0px 30px 10px -10px rgba(0,0,0,0.2);
+}
