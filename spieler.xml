@@ -1,0 +1,11 @@
+<?xml-stylesheet type="text/xsl" href="game.xsl"?>
+<memory>
+  <spieler>
+    <spielerId>1</spielerId>
+    <!-- Spieler Name muss man eingeben -->
+    <!-- Funktionen, damit alles dynamisch ist -->
+    <spielerName>Lena</spielerName>
+    <amZug stat="false"/>
+    <punkte>0</punkte>
+  </spieler>
+</memory>
