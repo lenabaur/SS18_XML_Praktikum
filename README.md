@@ -79,3 +79,15 @@ Board:
       Lena: Docbook bis Blatt 2 Aufgabe 1 erstellen
   
   
+
+     Funktionen:
+     + newGame, analog zu addPlayer
+       ->muss auf Funktion zugreifen, addPlayer
+      
+     + increase Points 
+     
+     + compareScores
+     
+     + amZug
+     
+     
