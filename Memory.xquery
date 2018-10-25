@@ -1,13 +1,41 @@
 xquery version "3.0";
 module namespace memory = "http://basex.org/memory";
 
+
+declare 
+    %rest:path("memory/setup")
+	%output:method("xhtml")
+	%updating
+	%rest:GET
+	function memory:setup()
+	{
+	let $memoryModelInit := doc("./static/game.xml")
+	return(db:create("Memory",$memoryModelInit),
+	
+	db:output($memoryModelInit))
+		
+};
+
+
+declare
+%rest:path("memory/addName")
+%updating
+%rest:POST
+%rest:form-param("fname","{$firstname}", "(no message)")
+function memory:addPlayer($firstname) {
+    let $game := db:open("Memory")/memory/spiel
+    return(insert node 
+    <neuerKnoten>{$firstname}</neuerKnoten> as last into $game)
+};
+
 declare
   %rest:path("memory/start")
   %output:method("xhtml")
   %output:omit-xml-declaration("no")
   %output:doctype-public("-//W3C//DTD XHTML 1.0 Transitional//EN")
   %output:doctype-system("http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd")
-  function memory:start()
+  %rest:form-param("fname","{$firstname}")
+  function memory:start($firstname)
 {
   <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -18,27 +46,48 @@ declare
              <body>
                <text style =" font-family:'impact';margin-left: 12.5cm; margin-top:10%; font-size: 50pt; color: 466675; font-weight:bold;">memory</text>	
 	           <text style =" font-family:'impact'; margin-left: 0cm; font-size: 30pt; color: 466675; font-weight:bold;">Battle</text>			
-             </body>
+             </body>   
+             
+             <tbody>
+             <table style="margin-left: 5cm; margin-top : 2cm;">
+                 <tr>
+                   <td>{$firstname}
+                   
+                   </td>
+                     <td> Inhalt 2
+                   </td>
+                     <td>Inhalt3
+                   </td>
+                 </tr>
+                 <tr>
+                  <td>Inhalt
+                   </td>
+                     <td>Inhalt2
+                   </td>
+                     <td>Inhalt3
+                   </td>
+                 </tr>
+                 <tr>
+                    <td>Inhalt
+                   </td>
+                     <td>Inhalt2
+                   </td>
+                     <td>Inhalt3
+                   </td>
+                 </tr>
+                 <tr>
+                 <td>Inhalt
+                   </td>
+                     <td>Inhalt2
+                   </td>
+                     <td>Inhalt3
+                   </td>
+                 </tr>
+            </table>
+            </tbody>
   </html>
 };
 
-
-(: Setup:
-    Creates the necessary database and sets RESTCallback functionality
-    to persist gamestate after disconnects / timeouts and the closure
-    of the browser tab. :)
-declare 
-    %rest:path("memory/setup")
-	%output:method("xhtml")
-	%updating
-	%rest:GET
-	function memory:setup()
-	{
-	let $memoryModelInit := doc("./static/game.xml")
-	return(db:create("Memory",$memoryModelInit),
-	db:output($memoryModelInit))
-		
-};
 
 
 (: Show Lobby:
@@ -65,11 +114,14 @@ declare
 		       <form style ="margin-top: 5%;" action="/memory/start" method="POST" enctype="application/x-www-form-urlencoded">
                      <button onclick="/start">Neues Spiel beginnen</button>
                </form>
-               <form style ="margin-left: 6cm; margin-top:-1.05cm;" action="/memory" method="POST" enctype="application/x-www-form-urlencoded">
-                     <button onclick="/start">Highscore</button>
+               <form action="/memory/start" method="POST" enctype="application/x-www-form-urlencoded">
+				    <input type="submit" value="Create a new game" style="padding:10px;border:none;background-color:#4682B4;color:#ffffff;"/>
+			     </form>
+               <form style ="margin-left: 6cm; margin-top:-1.05cm;" action="/memory/start" method="POST" enctype="application/x-www-form-urlencoded">
+                     <button type="submit">Highscore</button>
                </form>
                <form style ="margin-left: -6.8cm; margin-top:-1.05cm;" action="/memory" method="POST" enctype="application/x-www-form-urlencoded">
-                     <button onclick="/start">Spiel fortsetzen</button>
+                     <button onclick="/start">Name eingeben</button>
                </form>
                <img width="80x" style= " margin-top: 50; margin-left: 0%" src="https://png.icons8.com/dusk/50/000000/brainstorm-skill.png"/>
                <img width="90x" style= " margin-left: 1%" src="https://png.icons8.com/color/50/000000/brain.png"/>
@@ -83,13 +135,14 @@ declare
 	           <h1 style= "color: #583843; font-size: 20pt; margin-top: 10;">"train your brain"</h1>
 	        </body>   
             <body bgcolor="#FAC8BF"/>
+         
          <h1 style= "color: #583843; font-family: 'fantasy'; font-size: 20pt; margin-top: 4cm;">Who wants to battle?</h1>
-		<form style="margin-top:-9.5cm ;font-size:25pt; color: 466675; font-family:bold;" action="/memory/start" method="POST" enctype="application/x-www-form-urlencoded">
-		 <body>Name: <input type="text" name="fullname"></input></body> 
-         <body>Name: <input type="text" name="fullname"></input></body> 
-         <body>Name: <input type="text" name="fullname"></input></body> 
-         <body>Name: <input type="text" name="fullname"></input></body> 
-         <button style="margin-top: 10cm" onclick="/start">Spiel fortsetzen</button>
+		<form style="margin-top:-9.5cm ;font-size:25pt; color: 466675; font-family:bold;" action="/memory/addName" method="POST" enctype="application/x-www-form-urlencoded">
+		 Name: <input type="text" name="fname"></input> 
+         Name: <input type="text" name="fullname"></input>
+         Name: <input type="text" name="fullname"></input>
+         Name: <input type="text" name="fullname"></input>
+         <button type="submit">erstellen</button>
           </form>
 	</html>
 };
