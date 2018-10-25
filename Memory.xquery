@@ -1,5 +1,6 @@
 xquery version "3.0";
 module namespace memory = "http://basex.org/memory";
+import module namespace helper = "http://basex.org/memory/helper" at "memory_helper.xquery";
 
 
 declare 
@@ -18,14 +19,19 @@ declare
 
 
 declare
-%rest:path("memory/addName")
+%rest:path("memory/addPlayer")
 %updating
 %rest:POST
 %rest:form-param("fname","{$firstname}", "(no message)")
 function memory:addPlayer($firstname) {
     let $game := db:open("Memory")/memory/spiel
-    return(insert node 
-    <neuerKnoten>{$firstname}</neuerKnoten> as last into $game)
+    let $playerID := helper:timestamp()
+    let $player := <spieler id = "{$playerID}">
+    	                  <spielerName>{$firstname}</spielerName>
+    	                  <amZug stat="false"/>
+                          <punkte></punkte>
+    	               </spieler>	
+    return(insert node $player as last into $game)
 };
 
 declare
@@ -137,7 +143,7 @@ declare
             <body bgcolor="#FAC8BF"/>
          
          <h1 style= "color: #583843; font-family: 'fantasy'; font-size: 20pt; margin-top: 4cm;">Who wants to battle?</h1>
-		<form style="margin-top:-9.5cm ;font-size:25pt; color: 466675; font-family:bold;" action="/memory/addName" method="POST" enctype="application/x-www-form-urlencoded">
+		<form style="margin-top:-9.5cm ;font-size:25pt; color: 466675; font-family:bold;" action="/memory/addPlayer" method="POST" enctype="application/x-www-form-urlencoded">
 		 Name: <input type="text" name="fname"></input> 
          Name: <input type="text" name="fullname"></input>
          Name: <input type="text" name="fullname"></input>
@@ -145,4 +151,22 @@ declare
          <button type="submit">erstellen</button>
           </form>
 	</html>
-};
+	
+	};
+
+(:declare   
+%rest:path("memory/draw")
+%rest:GET 
+function memory:draw() {
+   let $xslt := doc("./static/game.xsl")   
+   let $input :=
+        <data>
+            <element>Element 1</element>
+       </data>
+       
+   
+   return (
+        let $transformedGame := xslt:transform-text($input, $xslt, ())
+    return (($transformedGame)))
+}; 
+:)
