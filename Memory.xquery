@@ -29,10 +29,21 @@ function memory:addPlayer($firstname) {
     let $player := <spieler id = "{$playerID}">
     	                  <spielerName>{$firstname}</spielerName>
     	                  <amZug stat="false"/>
+			  <reihenfolge></reihenfolge>
                           <punkte></punkte>
     	               </spieler>	
     return(insert node $player as last into $game)
 };
+
+declare
+%rest:path("memory/increasePoints")
+%rest:form-param("SpielerAmZug","{$SamZug}", "(no message)")
+function memory:increasePoints($SamZug) {
+	let $game := db:open("Memory")/memory/spieler[@id="{$SamZug}"]
+	let $newPoints := {data($game/punkte)+1}
+	replace value of node $game/punkte with $newPoints
+};
+
 
 declare
   %rest:path("memory/start")
