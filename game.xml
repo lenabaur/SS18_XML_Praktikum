@@ -8,7 +8,7 @@
   <spieler id="1">
     <spielerName>Lena</spielerName>
     <amZug stat="false"/>
-    <reihenfolge>1<reihenfolge>
+    <reihenfolge>1</reihenfolge>
     <punkte>0</punkte>
   </spieler>
 </memory>
