@@ -1,0 +1,13 @@
+
+<memory>
+	<rang> 
+		<spielerID> 1 </spielerID>
+		<name> Amy </name>
+		<punkte> 3 </punkte>
+	</rang>
+	<rang> 
+		<spielerID> 2 </spielerID>
+		<name> Laura </name>
+		<punkte> 2 </punkte>
+	</rang>
+</memory>
