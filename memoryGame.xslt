@@ -8,9 +8,9 @@
     <xsl:template match="/">
         <html>
             <body>          
-                    <xsl:for-each select="memory/spielfeld/feld">
+                    <xsl:for-each select="spielfeld/feld">
                         <tr>
-                            <td><xsl:value-of select="card" /></td>
+                            <td><xsl:value-of select="../static/cards/card/defs" /></td>
                         </tr>
                     </xsl:for-each>
             </body>
