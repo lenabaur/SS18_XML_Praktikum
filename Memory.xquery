@@ -18,30 +18,55 @@ declare
 };
 
 
+(:addPlayer adds a new Player to the Database. The variables have to be given through an HTML-Dokument:)
 declare
-%rest:path("memory/addPlayer")
-%updating
-%rest:POST
-%rest:form-param("fname","{$firstname}", "(no message)")
-function memory:addPlayer($firstname) {
-    let $game := db:open("Memory")/memory/spiel
-    let $playerID := helper:timestamp()
-    let $player := <spieler id = "{$playerID}">
-    	                  <spielerName>{$firstname}</spielerName>
-    	                  <amZug stat="false"/>
-			  <reihenfolge></reihenfolge>
-                          <punkte></punkte>
-    	               </spieler>	
-    return(insert node $player as last into $game)
+  %rest:path("memory/addPlayer")
+  %updating
+  %rest:POST
+  %rest:form-param("fname","{$firstname}", "(no message)")
+  function memory:addPlayer($firstname) {
+      let $game := db:open("Memory")/memory
+      let $playerID := helper:timestamp()
+      let $player := <spieler id = "{$playerID}">
+                          <spielerName>{$firstname}</spielerName>
+                          <amZug stat="false"/>
+                          <reihenfolge>2</reihenfolge>
+                            <punkte>0</punkte>
+                      </spieler>	
+  return(insert node $player as last into $game)
 };
 
+(:SamZug increases the number of points by 1. The Parameter is the id as a String (right now for tests as an Integer; when used
+within an HTML dokument the way of giving the parameters has to be changed):)
 declare
 %rest:path("memory/increasePoints")
-%rest:form-param("SpielerAmZug","{$SamZug}", "(no message)")
-function memory:increasePoints($SamZug) {
+%updating
+%rest:POST
+%rest:query-param("SamZug", "{$SamZug}")
+(:%rest:form-param("SpielerAmZug","{$SamZug}", "(no message)"):)
+function memory:increasePoints($SamZug as xs:integer) {
 	let $game := db:open("Memory")/memory/spieler[@id="{$SamZug}"]
-	let $newPoints := {data($game/punkte)+1}
-	replace value of node $game/punkte with $newPoints
+  let $elementOfPoints := data($game/punkte)
+	let $newPoints := 1+ $elementOfPoints
+	return(replace value of node $game/punkte with $newPoints)
+};
+
+(:comparePoints sorts the players by their score (does not work yet):)
+declare
+%rest:path("memory/comparePoints")
+%updating
+%rest:POST
+function memory:comparePoints() {
+  let $database := db:open("Memory")/memory/spieler
+  let $stats := db:open("Stats")/memory
+  for $x in $database
+  order by $x/punkte
+  let $input := <rang> 
+                  <spielerID> {data($x/@id)} </spielerID>
+                  <name> {data($x/spielerName)} </name>
+                  <punkte> {data($x/punkte)} </punkte>
+                </rang>
+	return(insert node $input as last into $stats) 
 };
 
 
