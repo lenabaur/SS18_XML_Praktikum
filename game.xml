@@ -1,14 +1,24 @@
-<?xml-stylesheet type="text/xsl" href="game.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <memory>
-  <spiel id="1">
-    <spielerAnzahl>2</spielerAnzahl>
-    <gewinnerID>0</gewinnerID>
-    <beendet stat="false"/>
-  </spiel>
-  <spieler id="1">
-    <spielerName>Lena</spielerName>
-    <amZug stat="false"/>
-    <reihenfolge>1</reihenfolge>
-    <punkte>0</punkte>
-  </spieler>
+    <spiel id="1">
+        <spielerAnzahl>2</spielerAnzahl>
+        <gewinnerID>0</gewinnerID>
+        <beendet stat="false"/>
+    </spiel>
+    <spieler id="1">
+        <spielerName>Lena</spielerName>
+        <amZug stat="false"/>
+        <reihenfolge>1</reihenfolge>
+        <punkte>0</punkte>
+    </spieler>
+    <spielfeld>
+        <feld>
+            <x>50</x>
+            <y>50</y>
+        </feld>
+        <feld>
+            <x>100</x>
+            <y>50</y>
+        </feld>
+    </spielfeld>
 </memory>
