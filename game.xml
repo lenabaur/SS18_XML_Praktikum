@@ -5,20 +5,66 @@
         <gewinnerID>0</gewinnerID>
         <beendet stat="false"/>
     </spiel>
-    <spieler id="1">
-        <spielerName>Lena</spielerName>
-        <amZug stat="false"/>
-        <reihenfolge>1</reihenfolge>
-        <punkte>0</punkte>
-    </spieler>
+    <spielerAll>
+        <spieler>       
+             <spielerName>Melisa</spielerName>
+             <!--<amZug stat="false"/>
+             <reihenfolge>1</reihenfolge>-->
+             <punkte>0</punkte>
+        </spieler>
+        <spieler>       
+            <spielerName>Hajar</spielerName>
+            <!--<amZug stat="false"/>
+            <reihenfolge>1</reihenfolge>-->
+            <punkte>0</punkte>
+        </spieler>
+        <spieler>       
+            <spielerName>Test</spielerName>
+            <!--<amZug stat="false"/>
+            <reihenfolge>1</reihenfolge>-->
+            <punkte>0</punkte>
+        </spieler>
+    </spielerAll>
     <spielfeld>
         <feld>
             <x>50</x>
             <y>50</y>
+            <card>3</card>
         </feld>
         <feld>
             <x>100</x>
             <y>50</y>
+            <card>5</card>
+        </feld>
+        <feld>
+            <x>100</x>
+            <y>50</y>
+            <card>2</card>
+        </feld>
+        <feld>
+            <x>100</x>
+            <y>50</y>
+            <card>4</card>
+        </feld>
+        <feld>
+            <x>100</x>
+            <y>50</y>
+            <card>6</card>
+        </feld>
+        <feld>
+            <x>100</x>
+            <y>50</y>
+            <card>7</card>
+        </feld>
+        <feld>
+            <x>100</x>
+            <y>50</y>
+            <card>8</card>
+        </feld>
+        <feld>
+            <x>100</x>
+            <y>50</y>
+            <card>9</card>
         </feld>
     </spielfeld>
 </memory>
