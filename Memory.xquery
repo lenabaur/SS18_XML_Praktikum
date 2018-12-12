@@ -32,10 +32,86 @@ function memory:addPlayer($firstname) {
     let $player := <spieler id = "{$playerID}">
     	                  <spielerName>{$firstname}</spielerName>
     	                  <amZug stat="false"/>
+			  <reihenfolge></reihenfolge>
                           <punkte></punkte>
     	               </spieler>	
     return(insert node $player as last into $game)
 };
+
+
+
+
+
+
+
+(: TODO function that creates a new game :)
+(: TODO function that checks if name already exists. Maybe be able to choose from existing players in the lobby? :)
+
+
+
+
+
+
+
+(:SamZug increases the number of points by 1. The Parameter is the id as a String (right now for tests as an Integer; when used
+within an HTML dokument the way of giving the parameters has to be changed):)
+declare
+%rest:path("memory/increasePoints")
+%updating
+%rest:POST
+%rest:query-param("SamZug", "{$SamZug}")
+(:%rest:form-param("SpielerAmZug","{$SamZug}", "(no message)"):)
+function memory:increasePoints($SamZug as xs:integer) {
+	let $game := db:open("Memory")/memory/spieler[@id="{$SamZug}"]
+  let $elementOfPoints := data($game/punkte)
+	let $newPoints := $elementOfPoints+1
+	return(replace value of node $game/punkte with $newPoints)
+};
+
+(:comparePoints sorts the players by their score :)
+declare
+%rest:path("memory/comparePoints")
+%updating
+%rest:POST
+function memory:comparePoints() {
+  let $database := db:open("Memory")/memory/spieler
+  let $stats := db:open("Stats")/memory
+  for $x in $database
+  order by $x/punkte
+  let $input := <rang> 
+                  <spielerID> {data($x/@id)} </spielerID>
+                  <name> {data($x/spielerName)} </name>
+                  <punkte> {data($x/punkte)} </punkte>
+                </rang>
+	return(insert node $input as last into $stats) 
+};
+
+(:compareCards checks if the cards turned are the same :)
+declare %updating function memory:CompareCards($player,$card1, $card2){
+        let $match := if($card1 = $card2) then 'true' else 'false'
+        
+        return (if ($match = 'true') then 
+        (memory:incresePoints($player),
+	)
+        
+         else if ($match = 'false') then
+         (memory:setNextPlayer)
+         
+};
+(: TODO: review next two functions:)
+declare %updating function memory:setNextPlayer($game){
+    let $nextPlayer := memory:getNextPlayer($game)
+    return
+        replace value of node $game/amZug with $nextPlayer
+};
+
+declare function memory:getNextPlayer($game){
+    let $playerTurn := $game/SpielerAmZug
+    let $numberOfPlayers := $game/spielerAnzahl
+    let $nextPlayer := if($playerTurn = $numberOfPlayers) then '1' else $playerTurn+1
+    return $nextPlayer
+};
+
 
 declare
   %rest:path("memory/start")
