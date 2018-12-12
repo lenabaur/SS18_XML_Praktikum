@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <memory>
-    <spiel id="1">
-        <spielerAnzahl>2</spielerAnzahl>
-        <gewinnerID>0</gewinnerID>
-        <beendet stat="false"/>
-    </spiel>
+    <gamesAll>
+	    <spiel id="1">
+		<spielerAnzahl>2</spielerAnzahl>
+		<SpielerAmZug>1</SpielerAmZug>
+		<Spieler1ID>1</Spieler1ID>
+		<Spieler2ID>2</Spieler2ID>
+		<Spieler3ID></Spieler3ID>
+		<Spieler4ID></Spieler4ID>
+		<gewinnerID>0</gewinnerID>
+		<beendet stat="false"/>
+	    </spiel>
+    </gamesAll>
     <spielerAll>
-        <spieler>       
+        <spieler id="1">       
              <spielerName>Melisa</spielerName>
-             <!--<amZug stat="false"/>
-             <reihenfolge>1</reihenfolge>-->
+             <amZug stat="true"/>
+             <reihenfolge>1</reihenfolge>
              <punkte>0</punkte>
         </spieler>
-        <spieler>       
+        <spieler id="2">       
             <spielerName>Hajar</spielerName>
-            <!--<amZug stat="false"/>
-            <reihenfolge>1</reihenfolge>-->
+            <amZug stat="false"/>
+            <reihenfolge>2</reihenfolge>
             <punkte>0</punkte>
         </spieler>
-        <spieler>       
+        <spieler id="3">       
             <spielerName>Test</spielerName>
-            <!--<amZug stat="false"/>
-            <reihenfolge>1</reihenfolge>-->
+            <amZug stat="false"/>
+            <reihenfolge>1</reihenfolge>
             <punkte>0</punkte>
         </spieler>
     </spielerAll>
@@ -67,4 +74,5 @@
             <card>9</card>
         </feld>
     </spielfeld>
+</memory>
 </memory>
