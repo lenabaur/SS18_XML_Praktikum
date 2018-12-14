@@ -12,6 +12,7 @@
 		<beendet stat="false"/>
 	    </spiel>
     </gamesAll>
+	
     <spielerAll>
         <spieler id="1">       
              <spielerName>Melisa</spielerName>
@@ -32,6 +33,15 @@
             <punkte>0</punkte>
         </spieler>
     </spielerAll>
+	
+    <stats>
+        <rang> 
+            <spielerID> </spielerID>
+            <name> </name>
+            <punkte> </punkte>
+        </rang>
+    </stats>
+	
     <spielfeld>
         <feld>
             <x>50</x>
