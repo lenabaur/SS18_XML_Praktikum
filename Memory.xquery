@@ -73,59 +73,86 @@ function memory:addPlayer($firstname) {
 
 
 
+declare %updating function memory:comparePoints($game){
+        let $database := db:open("Memory")/memory
+        let $idPlayer1 := $game/Spieler1ID
+        let $idPlayer2 := $game/Spieler2ID
+        let $idPlayer3 := $game/Spieler3ID
+        let $idPlayer4 := $game/Spieler4ID
+
+        let $scorePlayer1 := number($database/spielerAll/spieler[@id = "{$idPlayer1}"]/punkte)
+        let $scorePlayer2 := number($database/spielerAll/spieler[@id = "{$idPlayer2}"]/punkte)
+        let $scorePlayer3 := number($database/spielerAll/spieler[@id = "{$idPlayer3}"]/punkte)
+        let $scorePlayer4 := number($database/spielerAll/spieler[@id = "{$idPlayer4}"]/punkte)
+
+        let $namePlayer1 := $database/spielerAll/spieler[@id = "{$idPlayer1}"]/spielerName
+        let $namePlayer2 := $database/spielerAll/spieler[@id = "{$idPlayer2}"]/spielerName
+        let $namePlayer3 := $database/spielerAll/spieler[@id = "{$idPlayer3}"]/spielerName
+        let $namePlayer4 := $database/spielerAll/spieler[@id = "{$idPlayer4}"]/spielerName
 
 
-(:SamZug increases the number of points by 1. The Parameter is the id as a String (right now for tests as an Integer; when used
-within an HTML dokument the way of giving the parameters has to be changed):)
-declare
-%rest:path("memory/increasePoints")
-%updating
-%rest:POST
-%rest:query-param("SamZug", "{$SamZug}")
-(:%rest:form-param("SpielerAmZug","{$SamZug}", "(no message)"):)
-function memory:increasePoints($SamZug as xs:integer) {
-	let $game := db:open("Memory")/memory/spieler[@id="{$SamZug}"]
-  let $elementOfPoints := data($game/punkte)
-	let $newPoints := $elementOfPoints+1
-	return(replace value of node $game/punkte with $newPoints)
-};
+        let $round1 := if($scorePlayer1 = $scorePlayer2) then 'tie' else 
+        if($scorePlayer1 > $scorePlayer2) then $scorePlayer1 else $scorePlayer2
 
-(:comparePoints sorts the players by their score :)
-declare
-%rest:path("memory/comparePoints")
-%updating
-%rest:POST
-function memory:comparePoints() {
-  let $database := db:open("Memory")/memory/spieler
-  let $stats := db:open("Stats")/memory
-  for $x in $database
-  order by $x/punkte
-  let $input := <rang> 
-                  <spielerID> {data($x/@id)} </spielerID>
-                  <name> {data($x/spielerName)} </name>
-                  <punkte> {data($x/punkte)} </punkte>
-                </rang>
-	return(insert node $input as last into $stats) 
+        let $round2 := if($scorePlayer3 = $scorePlayer4) then 'tie' else 
+        if($scorePlayer1 > $scorePlayer2) then $scorePlayer3 else $scorePlayer4
+
+        let $finalround := if($round1 = 'tie' and $round2 = 'tie' 
+        or $round1 = 'tie' and $scorePlayer1 > $round2
+        or $round2 = 'tie' and $scorePlayer3 > $round1) then 'tie' else
+        if($round1 > $round2 ) then $round1 else $round2
+
+        return(
+          if ($finalround = 'tie') then 
+          (replace value of node $game/gewinnerID with 'tie')
+          else if ($finalround = $scorePlayer1) then 
+          (replace value of node $game/gewinnerID with $idPlayer1,
+          insert node <rang> 
+                        <spielerID> {$idPlayer1} </spielerID>
+                        <name> {$namePlayer1} </name>
+                        <punkte> {$scorePlayer1} </punkte>
+                      </rang> as last into $database/stats)
+          else if ($finalround = $scorePlayer2) then 
+          (replace value of node $game/gewinnerID with $idPlayer2,
+          insert node <rang> 
+                        <spielerID> {$idPlayer2} </spielerID>
+                        <name> {$namePlayer2} </name>
+                        <punkte> {$scorePlayer2} </punkte>
+                      </rang> as last into $database/stats)
+          else if ($finalround = $scorePlayer3) then 
+          (replace value of node $game/gewinnerID with $idPlayer3,
+          insert node <rang> 
+                        <spielerID> {$idPlayer3} </spielerID>
+                        <name> {$namePlayer3} </name>
+                        <punkte> {$scorePlayer3} </punkte>
+                      </rang> as last into $database/stats)
+          else  
+          (replace value of node $game/gewinnerID with $idPlayer4,
+          insert node <rang> 
+                        <spielerID> {$idPlayer4} </spielerID>
+                        <name> {$namePlayer4} </name>
+                        <punkte> {$scorePlayer4} </punkte>
+                      </rang> as last into $database/stats)
+        )
 };
 
 (:compareCards checks if the cards turned are the same :)
 declare %updating function memory:compareCards($player,$game,$card1, $card2){
         let $match := if($card1 = $card2) then 'true' else 'false'
+        let $playerScore := number($player/punkte)
         
         return(if ($match = 'true') then 
-        memory:increasePoints($player)
-	
-        
-         else 
-         memory:setNextPlayer($game))
+          (replace value of node $player/punkte with $playerScore+1)
+          else 
+          memory:setNextPlayer($game))
         
 };
 
-(: TODO: review next two functions:)
+
 declare %updating function memory:setNextPlayer($game){
     let $nextPlayer := memory:getNextPlayer($game)
     return
-        replace value of node $game/amZug with $nextPlayer
+        replace value of node $game/SpieleramZug with $nextPlayer
 };
 
 declare function memory:getNextPlayer($game){
