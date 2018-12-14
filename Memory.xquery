@@ -160,6 +160,16 @@ declare function memory:getNextPlayer($game){
     let $numberOfPlayers := $game/spielerAnzahl
     let $nextPlayer := if($playerTurn = $numberOfPlayers) then '1' else $playerTurn+1
     return $nextPlayer
+}; 
+
+declare 
+%rest:path("memory/getGame/{$gameID}")
+%rest:GET 
+function memory:getGame($gameID as xs:string)  {
+    let $game := db:open("Memory")
+    return $game/memory//gamesAll/spiel[id = $gameID]
+};
+
 };
 declare
   %rest:path("memory/start")
