@@ -15,7 +15,9 @@ declare
 	function memory:setup()
 	{
 	let $memoryModelInit := doc("./static/game.xml")
+  let $cardInit := doc("./static/cards.xml")
 	return(db:create("Memory",$memoryModelInit),
+  db:create("Cards",$cardInit),
 	
 	db:output($memoryModelInit))
 		
@@ -168,6 +170,14 @@ declare
 function memory:getGame($gameID as xs:string)  {
     let $game := db:open("Memory")
     return $game/memory//gamesAll/spiel[id = $gameID]
+};
+
+declare 
+%rest:path("memory/getCard/{$cardID}")
+%rest:GET 
+function memory:getCard($cardID as xs:string)  {
+    let $cards := db:open("Cards")
+    return $cards/cards/card[id = $cardID]
 };
 
 };
