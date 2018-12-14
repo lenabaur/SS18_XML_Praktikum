@@ -22,12 +22,35 @@ declare
 };
 
 declare
+  %rest:path("memory/newGame")
+  %rest:POST
+  updating function memory:newGame(){
+    let $game := db:open("Memory")/memory/gamesAll
+    let $gameID := helper:timestamp()   
+    let $memoryGame := 
+    <spiel id = "{$gameID}">
+      <gameID>{$gameID}</gameID>
+      <spielerAnzahl></spielerAnzahl>
+		  <SpielerAmZug>1</SpielerAmZug>
+		  <Spieler1ID></Spieler1ID>
+		  <Spieler2ID></Spieler2ID>
+		  <Spieler3ID></Spieler3ID>
+		  <Spieler4ID></Spieler4ID>
+		  <gewinnerID></gewinnerID>
+		  <beendet stat="false"/>
+	  </spiel>
+    return 
+  (insert node $memoryGame as first into $game)
+};
+
+
+declare
 %rest:path("memory/addPlayer")
 %updating
 %rest:POST
 %rest:form-param("fname","{$firstname}", "(no message)")
 function memory:addPlayer($firstname) {
-    let $game := db:open("Memory")/memory/spieler
+    let $game := db:open("Memory")/memory/spielerAll
     let $playerID := helper:timestamp()
     let $player := <spieler id = "{$playerID}">
     	                  <spielerName>{$firstname}</spielerName>
@@ -37,7 +60,6 @@ function memory:addPlayer($firstname) {
     	               </spieler>	
     return(insert node $player as last into $game)
 };
-
 
 
 
@@ -87,17 +109,18 @@ function memory:comparePoints() {
 };
 
 (:compareCards checks if the cards turned are the same :)
-declare %updating function memory:CompareCards($player,$card1, $card2){
+declare %updating function memory:compareCards($player,$game,$card1, $card2){
         let $match := if($card1 = $card2) then 'true' else 'false'
         
-        return (if ($match = 'true') then 
-        (memory:incresePoints($player),
-	)
+        return(if ($match = 'true') then 
+        memory:increasePoints($player)
+	
         
-         else if ($match = 'false') then
-         (memory:setNextPlayer)
-         
+         else 
+         memory:setNextPlayer($game))
+        
 };
+
 (: TODO: review next two functions:)
 declare %updating function memory:setNextPlayer($game){
     let $nextPlayer := memory:getNextPlayer($game)
@@ -111,8 +134,6 @@ declare function memory:getNextPlayer($game){
     let $nextPlayer := if($playerTurn = $numberOfPlayers) then '1' else $playerTurn+1
     return $nextPlayer
 };
-
-
 declare
   %rest:path("memory/start")
   %output:method("xhtml")
