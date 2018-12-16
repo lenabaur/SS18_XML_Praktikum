@@ -2,7 +2,7 @@ xquery version "3.0";
 module namespace memory = "http://basex.org/memory";
 import module namespace helper = "http://basex.org/memory/helper" at "memory_helper.xquery";
 declare namespace xslt = "http://basex.org/modules/xslt";
-
+declare namespace array = "http://www.w3.org/2005/xpath-functions/array";
 
 
 
