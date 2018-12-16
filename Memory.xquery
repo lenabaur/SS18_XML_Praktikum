@@ -25,8 +25,9 @@ declare
 
 declare
   %rest:path("memory/newGame")
+  %updating
   %rest:POST
-  updating function memory:newGame(){
+  function memory:newGame(){
     let $game := db:open("Memory")/memory/gamesAll
     let $gameID := helper:timestamp()   
     let $memoryGame := 
@@ -63,16 +64,56 @@ function memory:addPlayer($firstname) {
     return(insert node $player as last into $game)
 };
 
+declare
+%rest:path("memory/createInitialDeck")
+%updating
+%rest:POST
+function memory:createInitialDeck(){
+        let $board := db:open("Memory")/memory/spielfeld
+        let $possibleCards := [1,1,2,2,3,3,4,4]
 
+        let $position1 := helper:random(8)
+        let $field1 := array:get($possibleCards,$position1)
+        let $new1:= array:remove($possibleCards,$position1)
 
+        let $position2 := helper:random(7)
+        let $field2 := array:get($new1,$position2)
+        let $new2:= array:remove($new1,$position2)
 
+        let $position3 := helper:random(6)
+        let $field3 := array:get($new2,$position3)
+        let $new3:= array:remove($new2,$position3)
 
+        let $position4 := helper:random(5)
+        let $field4 := array:get($new3,$position4)
+        let $new4:= array:remove($new3,$position4)
 
-(: TODO function that creates a new game :)
-(: TODO function that checks if name already exists. Maybe be able to choose from existing players in the lobby? :)
+        let $position5 := helper:random(4)
+        let $field5 := array:get($new4,$position5)
+        let $new5:= array:remove($new4,$position5)
 
+        let $position6 := helper:random(3)
+        let $field6 := array:get($new5,$position6)
+        let $new6:= array:remove($new5,$position6)
 
+        let $position7 := helper:random(2)
+        let $field7 := array:get($new6,$position7)
+        let $new7:= array:remove($new6,$position7)
 
+        let $position8 := 1
+        let $field8 := array:get($new7,$position8)
+        
+        return(
+          replace value of node $board/feld[id="1"]/card with $field1,
+          replace value of node $board/feld[id="2"]/card with $field2,
+          replace value of node $board/feld[id="3"]/card with $field3,
+          replace value of node $board/feld[id="4"]/card with $field4,
+          replace value of node $board/feld[id="5"]/card with $field5,
+          replace value of node $board/feld[id="6"]/card with $field6,
+          replace value of node $board/feld[id="7"]/card with $field7,
+          replace value of node $board/feld[id="8"]/card with $field8
+          ) 
+};
 
 
 declare %updating function memory:comparePoints($game){
@@ -139,17 +180,37 @@ declare %updating function memory:comparePoints($game){
 };
 
 (:compareCards checks if the cards turned are the same :)
-declare %updating function memory:compareCards($player,$game,$card1, $card2){
+declare %updating function memory:compareCards($player,$game,$field1, $field2){
+        let $board := db:open("Memory")/memory/spielfeld
+        let $card1 := $board/feld[id=$field1]/card
+        let $card2 := $board/feld[id=$field2]/card
         let $match := if($card1 = $card2) then 'true' else 'false'
         let $playerScore := number($player/punkte)
         
         return(if ($match = 'true') then 
-          (replace value of node $player/punkte with $playerScore+1)
+          (replace value of node $player/punkte with $playerScore+1,
+          replace value of node $board/feld[id=$field1]/invisible with "true",
+          replace value of node $board/feld[id=$field2]/invisible with "true")
           else 
-          memory:setNextPlayer($game))
-        
+          (replace value of node $board/feld[id=$field1]/open with "false",
+          replace value of node $board/feld[id=$field2]/open with "false",
+          memory:setNextPlayer($game)))     
 };
 
+
+declare
+%rest:path("memory/openCard")
+%updating
+%rest:POST
+%rest:form-param("field","{$field}", "(no message)")
+function memory:openCard($field){
+        let $board := db:open("Memory")/memory/spielfeld
+        let $opened := $board/feld[id=$field]/open
+        return(if ($opened = 'false') then 
+                  (replace value of node $opened with 'true')
+                 else replace value of node $opened with 'false') (:this is only a short term solution
+                 here, a message that asks to open a different card has to be opened (Fehlermeldung):)
+};
 
 declare %updating function memory:setNextPlayer($game){
     let $nextPlayer := memory:getNextPlayer($game)
@@ -162,7 +223,7 @@ declare function memory:getNextPlayer($game){
     let $numberOfPlayers := $game/spielerAnzahl
     let $nextPlayer := if($playerTurn = $numberOfPlayers) then '1' else $playerTurn+1
     return $nextPlayer
-}; 
+};
 
 declare 
 %rest:path("memory/getGame/{$gameID}")
@@ -179,7 +240,6 @@ function memory:getCard($cardID as xs:string)  {
     let $cards := db:open("Cards")
     return $cards/cards/card[id = $cardID]
 };
-
 };
 declare
   %rest:path("memory/start")
