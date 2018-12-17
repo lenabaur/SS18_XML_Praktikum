@@ -42,47 +42,62 @@
         </rang>
     </stats>
 	
-    <spielfeld>
-        <feld>
+   <spielfeld>
+        <feld id="1">
             <x>50</x>
             <y>50</y>
             <card>3</card>
+            <open>false</open>
+            <invisible>false</invisible>
         </feld>
-        <feld>
+        <feld id="2">
             <x>100</x>
             <y>50</y>
             <card>5</card>
+            <open>false</open>
+            <invisible>false</invisible>
         </feld>
-        <feld>
+        <feld id="3">
             <x>100</x>
             <y>50</y>
             <card>2</card>
+            <open>false</open>
+            <invisible>false</invisible>
         </feld>
-        <feld>
+        <feld id="4">
             <x>100</x>
             <y>50</y>
             <card>4</card>
+            <open>false</open>
+            <invisible>false</invisible>
         </feld>
-        <feld>
+        <feld id="5">
             <x>100</x>
             <y>50</y>
             <card>6</card>
+            <open>false</open>
+            <invisible>false</invisible>
         </feld>
-        <feld>
+        <feld id="6">
             <x>100</x>
             <y>50</y>
             <card>7</card>
+            <open>false</open>
+            <invisible>false</invisible>
         </feld>
-        <feld>
+        <feld id="7">
             <x>100</x>
             <y>50</y>
             <card>8</card>
+            <open>false</open>
+            <invisible>false</invisible>
         </feld>
-        <feld>
+        <feld id="8">
             <x>100</x>
             <y>50</y>
             <card>9</card>
+            <open>false</open>
+            <invisible>false</invisible>
         </feld>
     </spielfeld>
-</memory>
 </memory>
