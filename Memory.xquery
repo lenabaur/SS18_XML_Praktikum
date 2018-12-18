@@ -263,6 +263,15 @@ function memory:getGame($gameID as xs:string)  {
     return $game/memory/gamesAll/spiel[@id = $gameID]
 };
 
+(: funtion works:)
+declare 
+%rest:path("memory/getPlayer/{$playerID}")
+%rest:GET 
+function memory:getPlayer($playerID)  {
+    let $game := db:open("Memory")
+    return $game/memory/spielerAll/spieler[@id = $playerID]
+};
+
 (:function works:)
 declare 
 %rest:path("memory/getCard/{$cardID}")
