@@ -119,66 +119,85 @@ function memory:createInitialDeck(){
 };
 
 
-declare %updating function memory:comparePoints($game){
-        let $database := db:open("Memory")/memory
-        let $idPlayer1 := $game/Spieler1ID
-        let $idPlayer2 := $game/Spieler2ID
-        let $idPlayer3 := $game/Spieler3ID
-        let $idPlayer4 := $game/Spieler4ID
+(: function works
+changes gewinnerID to the playerID of the winner and to -1 if there is no clear winner;
+adds a new entry into stats:)
+declare
+%rest:path("memory/compareScore/{$gameID}")
+%updating
+%rest:POST
+function memory:compareScore($gameID){
+        let $stats := db:open("Stats")/memory
+        let $gamePlayed := memory:getGame($gameID)
 
-        let $scorePlayer1 := number($database/spielerAll/spieler[@id = "{$idPlayer1}"]/punkte)
-        let $scorePlayer2 := number($database/spielerAll/spieler[@id = "{$idPlayer2}"]/punkte)
-        let $scorePlayer3 := number($database/spielerAll/spieler[@id = "{$idPlayer3}"]/punkte)
-        let $scorePlayer4 := number($database/spielerAll/spieler[@id = "{$idPlayer4}"]/punkte)
+        let $idPlayer1 := $gamePlayed/Spieler1ID/number()
+        let $player1 := memory:getPlayer($idPlayer1)
+        let $idPlayer2 := $gamePlayed/Spieler2ID/number()
+        let $player2 := memory:getPlayer($idPlayer2)
+        let $idPlayer3 := $gamePlayed/Spieler3ID/number()
+        let $player3 := memory:getPlayer($idPlayer3)
+        let $idPlayer4 := $gamePlayed/Spieler4ID/number()
+        let $player4 := memory:getPlayer($idPlayer4)
 
-        let $namePlayer1 := $database/spielerAll/spieler[@id = "{$idPlayer1}"]/spielerName
-        let $namePlayer2 := $database/spielerAll/spieler[@id = "{$idPlayer2}"]/spielerName
-        let $namePlayer3 := $database/spielerAll/spieler[@id = "{$idPlayer3}"]/spielerName
-        let $namePlayer4 := $database/spielerAll/spieler[@id = "{$idPlayer4}"]/spielerName
+        let $scorePlayer1 := $player1/punkte/number()
+        let $scorePlayer2 := $player2/punkte/number()
+        let $scorePlayer3 := $player3/punkte/number()
+        let $scorePlayer4 := $player4/punkte/number()
 
+        let $namePlayer1 := $player1/spielerName
+        let $namePlayer2 := $player2/spielerName
+        let $namePlayer3 := $player3/spielerName
+        let $namePlayer4 := $player4/spielerName
 
-        let $round1 := if($scorePlayer1 = $scorePlayer2) then 'tie' else 
+        let $round1 := if($scorePlayer1 = $scorePlayer2) then -1 else 
         if($scorePlayer1 > $scorePlayer2) then $scorePlayer1 else $scorePlayer2
 
-        let $round2 := if($scorePlayer3 = $scorePlayer4) then 'tie' else 
-        if($scorePlayer1 > $scorePlayer2) then $scorePlayer3 else $scorePlayer4
+        let $round2 := if($scorePlayer3 = $scorePlayer4) then -1 else 
+        if($scorePlayer3 > $scorePlayer4) then $scorePlayer3 else $scorePlayer4
 
-        let $finalround := if($round1 = 'tie' and $round2 = 'tie' 
-        or $round1 = 'tie' and $scorePlayer1 > $round2
-        or $round2 = 'tie' and $scorePlayer3 > $round1) then 'tie' else
-        if($round1 > $round2 ) then $round1 else $round2
+        let $finalround := if($round1 = $round2) then -1 
+        else if ($round1 = -1 and $scorePlayer1 > $round2) then -1
+        else if ($round2 = -1 and $scorePlayer3 > $round1) then -1
+        else if($round1 > $round2 ) then $round1 else $round2
 
         return(
-          if ($finalround = 'tie') then 
-          (replace value of node $game/gewinnerID with 'tie')
+          if ($finalround = -1) then 
+          (replace value of node $gamePlayed/gewinnerID with -1,
+          insert node <tie> 
+                        <gameID> {$gameID} </gameID>
+                      </tie> as last into $stats)
           else if ($finalround = $scorePlayer1) then 
-          (replace value of node $game/gewinnerID with $idPlayer1,
+          (replace value of node $gamePlayed/gewinnerID with $idPlayer1,
           insert node <rang> 
+                        <gameID> {$gameID} </gameID>
                         <spielerID> {$idPlayer1} </spielerID>
-                        <name> {$namePlayer1} </name>
+                        <name> {data($namePlayer1)} </name>
                         <punkte> {$scorePlayer1} </punkte>
-                      </rang> as last into $database/stats)
+                      </rang> as last into $stats)
           else if ($finalround = $scorePlayer2) then 
-          (replace value of node $game/gewinnerID with $idPlayer2,
+          (replace value of node $gamePlayed/gewinnerID with $idPlayer2,
           insert node <rang> 
+                        <gameID> {$gameID} </gameID>
                         <spielerID> {$idPlayer2} </spielerID>
-                        <name> {$namePlayer2} </name>
+                        <name> {data($namePlayer2)} </name>
                         <punkte> {$scorePlayer2} </punkte>
-                      </rang> as last into $database/stats)
+                      </rang> as last into $stats)
           else if ($finalround = $scorePlayer3) then 
-          (replace value of node $game/gewinnerID with $idPlayer3,
+          (replace value of node $gamePlayed/gewinnerID with $idPlayer3,
           insert node <rang> 
+                        <gameID> {$gameID} </gameID>
                         <spielerID> {$idPlayer3} </spielerID>
-                        <name> {$namePlayer3} </name>
+                        <name> {data($namePlayer3)} </name>
                         <punkte> {$scorePlayer3} </punkte>
-                      </rang> as last into $database/stats)
-          else  
-          (replace value of node $game/gewinnerID with $idPlayer4,
+                      </rang> as last into $stats)
+          else 
+          (replace value of node $gamePlayed/gewinnerID with $idPlayer4,
           insert node <rang> 
+                        <gameID> {$gameID} </gameID>
                         <spielerID> {$idPlayer4} </spielerID>
-                        <name> {$namePlayer4} </name>
+                        <name> {data($namePlayer4)} </name>
                         <punkte> {$scorePlayer4} </punkte>
-                      </rang> as last into $database/stats)
+                      </rang> as last into $stats)
         )
 };
 
