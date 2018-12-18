@@ -212,35 +212,60 @@ function memory:openCard($field){
                  here, a message that asks to open a different card has to be opened (Fehlermeldung):)
 };
 
-declare %updating function memory:setNextPlayer($game){
-    let $nextPlayer := memory:getNextPlayer($game)
+
+(:function works:)
+declare
+%rest:path("memory/setNextPlayer/{$gameID}")
+%updating
+%rest:POST
+function memory:setNextPlayer($gameID){
+    let $gamePlayed := memory:getGame($gameID)
+    let $gp := $gamePlayed/SpielerAmZug
+    let $nextPlayer := memory:getNextPlayer($gameID)
     return
-        replace value of node $game/SpieleramZug with $nextPlayer
+        (replace value of node $gp with $nextPlayer)
 };
 
-declare function memory:getNextPlayer($game){
-    let $playerTurn := $game/SpielerAmZug
-    let $numberOfPlayers := $game/spielerAnzahl
+
+(:function works:)
+declare
+%rest:path("memory/getNextPlayer/{$gameID}")
+%rest:GET 
+function memory:getNextPlayer($gameID){
+    let $gamePlayed := memory:getGame($gameID)
+    let $playerTurn := $gamePlayed/SpielerAmZug/number()
+    let $numberOfPlayers := $gamePlayed/spielerAnzahl/number()
     let $nextPlayer := if($playerTurn = $numberOfPlayers) then '1' else $playerTurn+1
     return $nextPlayer
 };
 
+(: funtion works:)
 declare 
 %rest:path("memory/getGame/{$gameID}")
 %rest:GET 
 function memory:getGame($gameID as xs:string)  {
     let $game := db:open("Memory")
-    return $game/memory//gamesAll/spiel[id = $gameID]
+    return $game/memory/gamesAll/spiel[@id = $gameID]
 };
 
+(:function works:)
 declare 
 %rest:path("memory/getCard/{$cardID}")
 %rest:GET 
 function memory:getCard($cardID as xs:string)  {
     let $cards := db:open("Cards")
-    return $cards/cards/card[id = $cardID]
+    return $cards/cards/card[@id = $cardID]
 };
+
+(:function works:)
+declare 
+%rest:path("memory/getField/{$fieldID}")
+%rest:GET 
+function memory:getField($fieldID as xs:string)  {
+    let $spielfeld := db:open("Memory")
+    return $spielfeld/memory/spielfeld/feld[@id = $fieldID]
 };
+
 declare
   %rest:path("memory/start")
   %output:method("xhtml")
