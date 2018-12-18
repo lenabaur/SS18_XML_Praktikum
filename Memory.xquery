@@ -67,6 +67,7 @@ function memory:addPlayer($firstname) {
     return(insert node $player as last into $game)
 };
 
+(:works already but only works for a card deck of 8 cards:)
 declare
 %rest:path("memory/createInitialDeck")
 %updating
@@ -107,14 +108,14 @@ function memory:createInitialDeck(){
         let $field8 := array:get($new7,$position8)
         
         return(
-          replace value of node $board/feld[id="1"]/card with $field1,
-          replace value of node $board/feld[id="2"]/card with $field2,
-          replace value of node $board/feld[id="3"]/card with $field3,
-          replace value of node $board/feld[id="4"]/card with $field4,
-          replace value of node $board/feld[id="5"]/card with $field5,
-          replace value of node $board/feld[id="6"]/card with $field6,
-          replace value of node $board/feld[id="7"]/card with $field7,
-          replace value of node $board/feld[id="8"]/card with $field8
+          replace value of node $board/feld[@id="1"]/card with $field1,
+          replace value of node $board/feld[@id="2"]/card with $field2,
+          replace value of node $board/feld[@id="3"]/card with $field3,
+          replace value of node $board/feld[@id="4"]/card with $field4,
+          replace value of node $board/feld[@id="5"]/card with $field5,
+          replace value of node $board/feld[@id="6"]/card with $field6,
+          replace value of node $board/feld[@id="7"]/card with $field7,
+          replace value of node $board/feld[@id="8"]/card with $field8
           ) 
 };
 
