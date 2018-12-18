@@ -179,22 +179,31 @@ declare %updating function memory:comparePoints($game){
         )
 };
 
-(:compareCards checks if the cards turned are the same :)
-declare %updating function memory:compareCards($player,$game,$field1, $field2){
-        let $board := db:open("Memory")/memory/spielfeld
-        let $card1 := $board/feld[id=$field1]/card
-        let $card2 := $board/feld[id=$field2]/card
+(: function works
+compareCards checks if the cards turned are the same, if yes: invsible is set to true for both cards 
+and the score of the player is increased by one
+if no: open is set to false for both card and spielerAmZug is set to the next Player :)
+declare
+%rest:path("memory/compareCards/{$player}/{$game}/{$field1}/{$field2}")
+%updating
+%rest:POST
+function memory:compareCards($player,$game,$field1, $field2){
+        let $f1 := memory:getField($field1)
+        let $f2 := memory:getField($field2)
+        let $person := memory:getPlayer($player)
+        let $card1 := $f1/card/number()
+        let $card2 := $f2/card/number()
         let $match := if($card1 = $card2) then 'true' else 'false'
-        let $playerScore := number($player/punkte)
+        let $playerScore := $person/punkte/number()
         
         return(if ($match = 'true') then 
-          (replace value of node $player/punkte with $playerScore+1,
-          replace value of node $board/feld[id=$field1]/invisible with "true",
-          replace value of node $board/feld[id=$field2]/invisible with "true")
-          else 
-          (replace value of node $board/feld[id=$field1]/open with "false",
-          replace value of node $board/feld[id=$field2]/open with "false",
-          memory:setNextPlayer($game)))     
+          (replace value of node $person/punkte with $playerScore+1,
+          memory:collectCards($field1, $field2))
+          else if ($match = 'false') then
+          (memory:closeCard($field1),
+          memory:closeCard($field2),
+          memory:setNextPlayer($game))
+          else ())    
 };
 
 
@@ -208,6 +217,19 @@ function memory:openCard($fieldID){
         let $opened := $cardToOpen/open
         return(if ($opened = 'false') then 
                   (replace value of node $opened with "true")
+                 else () (:replace value of node $opened with 'somethingWentWrong':))
+};
+
+(: function works:)
+declare
+%rest:path("memory/closeCard/{$fieldID}")
+%updating
+%rest:POST
+function memory:closeCard($fieldID){
+        let $cardToClose := memory:getField($fieldID)
+        let $opened := $cardToClose/open
+        return(if ($opened = 'true') then 
+                  (replace value of node $opened with "false")
                  else () (:replace value of node $opened with 'somethingWentWrong':))
 };
 
@@ -226,7 +248,6 @@ function memory:collectCards($fieldID1, $fieldID2){
                   replace value of node $opened2 with "true")
                  else () (:replace value of node $opened with 'somethingWentWrong':))
 };
-
 
 (:function works:)
 declare
