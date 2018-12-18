@@ -7,6 +7,7 @@ declare namespace array = "http://www.w3.org/2005/xpath-functions/array";
 
 
 
+(:function works:)
 declare 
     %rest:path("memory/setup")
 	%output:method("xhtml")
@@ -14,10 +15,12 @@ declare
 	%rest:GET
 	function memory:setup()
 	{
-	let $memoryModelInit := doc("./static/game.xml")
-  let $cardInit := doc("./static/cards.xml")
+	let $memoryModelInit := doc("./static/memory/game.xml")
+  let $cardInit := doc("./static/memory/cards.xml")
+  let $statsInit := doc("./static/memory/stats.xml")
 	return(db:create("Memory",$memoryModelInit),
   db:create("Cards",$cardInit),
+  db:create("Stats",$statsInit),
 	
 	db:output($memoryModelInit))
 		
