@@ -198,18 +198,33 @@ declare %updating function memory:compareCards($player,$game,$field1, $field2){
 };
 
 
+(: function works:)
 declare
-%rest:path("memory/openCard")
+%rest:path("memory/openCard/{$fieldID}")
 %updating
 %rest:POST
-%rest:form-param("field","{$field}", "(no message)")
-function memory:openCard($field){
-        let $board := db:open("Memory")/memory/spielfeld
-        let $opened := $board/feld[id=$field]/open
+function memory:openCard($fieldID){
+        let $cardToOpen := memory:getField($fieldID)
+        let $opened := $cardToOpen/open
         return(if ($opened = 'false') then 
-                  (replace value of node $opened with 'true')
-                 else replace value of node $opened with 'false') (:this is only a short term solution
-                 here, a message that asks to open a different card has to be opened (Fehlermeldung):)
+                  (replace value of node $opened with "true")
+                 else () (:replace value of node $opened with 'somethingWentWrong':))
+};
+
+(:function work:)
+declare
+%rest:path("memory/collectCards/{$fieldID1}/{$fieldID2}")
+%updating
+%rest:POST
+function memory:collectCards($fieldID1, $fieldID2){
+        let $card1 := memory:getField($fieldID1)
+        let $card2 := memory:getField($fieldID2)
+        let $opened1 := $card1/invisible
+        let $opened2 := $card2/invisible
+        return(if ($opened1 = 'false' and $opened2 = 'false') then 
+                  (replace value of node $opened1 with "true",
+                  replace value of node $opened2 with "true")
+                 else () (:replace value of node $opened with 'somethingWentWrong':))
 };
 
 
