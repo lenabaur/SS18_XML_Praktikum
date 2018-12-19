@@ -103,6 +103,56 @@ function memory:MatchPlayersToGame($gameID,$numberOfPlayers,$id1,$id2,$id3,$id4)
       replace value of node $game/Spieler4ID with $id4)
 };
 
+(:function works    used together with moveForward:)
+declare 
+  %rest:path("memory/removeIDfromGame/{$playerID}/{$gameID}")
+  %updating
+  %rest:POST
+function memory:removeIDfromGame($playerID,$gameID){
+    let $game := memory:getGame($gameID)
+    let $anzahl := $game/spielerAnzahl/number() - 1
+    return(
+        if ($game/Spieler1ID = $playerID) then (
+          replace value of node $game/Spieler1ID with "0",
+          replace value of node $game/spielerAnzahl with $anzahl)
+        else if ($game/Spieler2ID = $playerID) then (
+          replace value of node $game/Spieler2ID with "0",
+          replace value of node $game/spielerAnzahl with $anzahl)
+        else if ($game/Spieler3ID = $playerID) then (
+          replace value of node $game/Spieler3ID with "0",
+          replace value of node $game/spielerAnzahl with $anzahl)
+        else if ($game/Spieler4ID = $playerID) then (
+          replace value of node $game/Spieler4ID with "0",
+          replace value of node $game/spielerAnzahl with $anzahl)
+        else()
+    )
+};
+
+(:function works  used together with removeIDfromGame:)
+declare
+%rest:path("memory/moveForward/{$gameID}")
+%updating
+%rest:POST
+function memory:moveForward($gameID){
+    let $game := memory:getGame($gameID)
+  return (
+      if ($game/Spieler1ID = 0) then (
+        replace value of node $game/Spieler1ID with $game/Spieler2ID,
+        replace value of node $game/Spieler2ID with $game/Spieler3ID,
+        replace value of node $game/Spieler3ID with $game/Spieler4ID,
+        replace value of node $game/Spieler4ID with "0")
+      else if ($game/Spieler2ID = 0) then (
+        replace value of node $game/Spieler2ID with $game/Spieler3ID,
+        replace value of node $game/Spieler3ID with $game/Spieler4ID,
+        replace value of node $game/Spieler4ID with "0")
+      else if ($game/Spieler3ID = 0) then (
+        replace value of node $game/Spieler3ID with $game/Spieler4ID,
+        replace value of node $game/Spieler4ID with "0")
+      else()
+    )
+};
+
+
 (:works already but only works for a card deck of 8 cards:)
 declare
 %rest:path("memory/createInitialDeck")
