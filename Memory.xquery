@@ -26,6 +26,7 @@ declare
 		
 };
 
+(: function works :)
 declare
   %rest:path("memory/newGame")
   %updating
@@ -35,35 +36,30 @@ declare
     let $gameID := helper:timestamp()   
     let $memoryGame := 
     <spiel id = "{$gameID}">
-      <gameID>{$gameID}</gameID>
-      <spielerAnzahl></spielerAnzahl>
+      <spielerAnzahl>0</spielerAnzahl>
 		  <SpielerAmZug>1</SpielerAmZug>
-		  <Spieler1ID></Spieler1ID>
-		  <Spieler2ID></Spieler2ID>
-		  <Spieler3ID></Spieler3ID>
-		  <Spieler4ID></Spieler4ID>
-		  <gewinnerID></gewinnerID>
-		  <beendet stat="false"/>
+		  <Spieler1ID>0</Spieler1ID>
+		  <Spieler2ID>0</Spieler2ID>
+		  <Spieler3ID>0</Spieler3ID>
+		  <Spieler4ID>0</Spieler4ID>
+		  <gewinnerID>0</gewinnerID>
 	  </spiel>
     return 
   (insert node $memoryGame as first into $game)
 };
 
-
+(: function works :)
 declare
-%rest:path("memory/addPlayer")
+%rest:path("memory/addPlayer/{$firstname}")
 %updating
 %rest:POST
-%rest:form-param("fname","{$firstname}", "(no message)")
 function memory:addPlayer($firstname) {
     let $game := db:open("Memory")/memory/spielerAll
     let $playerID := helper:timestamp()
     let $player := <spieler id = "{$playerID}">
-    	                  <spielerName>{$firstname}</spielerName>
-    	                  <amZug stat="false"/>
-			  <reihenfolge></reihenfolge>
-                          <punkte></punkte>
-    	               </spieler>	
+    	                <spielerName>{$firstname}</spielerName>
+                      <punkte>0</punkte>
+    	              </spieler>	
     return(insert node $player as last into $game)
 };
 
