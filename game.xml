@@ -6,34 +6,35 @@
 		<SpielerAmZug>1</SpielerAmZug>
 		<Spieler1ID>1</Spieler1ID>
 		<Spieler2ID>2</Spieler2ID>
-		<Spieler3ID></Spieler3ID>
-		<Spieler4ID></Spieler4ID>
+		<Spieler3ID>3</Spieler3ID>
+		<Spieler4ID>4</Spieler4ID>
 		<gewinnerID>0</gewinnerID>
-		<beendet stat="false"/>
 	    </spiel>
     </gamesAll>
-	
+
     <spielerAll>
         <spieler id="1">       
              <spielerName>Melisa</spielerName>
-             <amZug stat="true"/>
-             <reihenfolge>1</reihenfolge>
-             <punkte>0</punkte>
+             <punkte>3</punkte>
         </spieler>
         <spieler id="2">       
             <spielerName>Hajar</spielerName>
-            <amZug stat="false"/>
-            <reihenfolge>2</reihenfolge>
-            <punkte>0</punkte>
+            <punkte>1</punkte>
         </spieler>
         <spieler id="3">       
-            <spielerName>Test</spielerName>
-            <amZug stat="false"/>
-            <reihenfolge>1</reihenfolge>
+            <spielerName>Lena</spielerName>
+            <punkte>4</punkte>
+        </spieler>
+        <spieler id="4">       
+            <spielerName>Lisa</spielerName>
+            <punkte>5</punkte>
+        </spieler>
+        <spieler id="0">       
+            <spielerName>NoPlayer</spielerName>
             <punkte>0</punkte>
         </spieler>
     </spielerAll>
-	
+
     <stats>
         <rang> 
             <spielerID> </spielerID>
@@ -41,34 +42,34 @@
             <punkte> </punkte>
         </rang>
     </stats>
-	
-   <spielfeld>
+
+    <spielfeld>
         <feld id="1">
             <x>50</x>
             <y>50</y>
-            <card>3</card>
-            <open>false</open>
+            <card>1</card>
+            <open>true</open>
             <invisible>false</invisible>
         </feld>
         <feld id="2">
             <x>100</x>
             <y>50</y>
-            <card>5</card>
-            <open>false</open>
+            <card>1</card>
+            <open>true</open>
             <invisible>false</invisible>
         </feld>
         <feld id="3">
             <x>100</x>
             <y>50</y>
             <card>2</card>
-            <open>false</open>
+            <open>true</open>
             <invisible>false</invisible>
         </feld>
         <feld id="4">
             <x>100</x>
             <y>50</y>
             <card>4</card>
-            <open>false</open>
+            <open>true</open>
             <invisible>false</invisible>
         </feld>
         <feld id="5">
