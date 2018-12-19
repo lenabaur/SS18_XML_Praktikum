@@ -63,6 +63,21 @@ function memory:addPlayer($firstname) {
     return(insert node $player as last into $game)
 };
 
+(:function works  - all parameters have to be given(fill up ids with 0):)
+declare
+%rest:path("memory/matchPlayersToGame/{$gameID}/{$numberOfPlayers}/{$id1}/{$id2}/{$id3}/{$id4}")
+%updating
+%rest:POST
+function memory:MatchPlayersToGame($gameID,$numberOfPlayers,$id1,$id2,$id3,$id4) {
+    let $game := memory:getGame($gameID)
+    return(
+      replace value of node $game/spielerAnzahl with $numberOfPlayers,
+      replace value of node $game/Spieler1ID with $id1,
+      replace value of node $game/Spieler2ID with $id2,
+      replace value of node $game/Spieler3ID with $id3,
+      replace value of node $game/Spieler4ID with $id4)
+};
+
 (:works already but only works for a card deck of 8 cards:)
 declare
 %rest:path("memory/createInitialDeck")
