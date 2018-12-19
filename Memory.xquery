@@ -130,6 +130,18 @@ function memory:createInitialDeck(){
           ) 
 };
 
+(: function works     main function for the game:)
+declare
+%rest:path("memory/playRound/{$game}/{$field1}/{$field2}")
+%updating
+%rest:POST
+function memory:playRound($game,$field1, $field2){
+        let $player := memory:zugPlayerID($game)
+        return(
+          memory:openCard($field1),
+          memory:openCard($field2),
+          memory:compareCards($player,$game,$field1, $field2))
+};
 
 (: function works
 changes gewinnerID to the playerID of the winner and to -1 if there is no clear winner;
