@@ -48,6 +48,31 @@ declare
   (insert node $memoryGame as first into $game)
 };
 
+(:function works:)
+declare
+  %rest:path("memory/addIDtoGame/{$playerID}/{$gameID}")
+  %updating
+  %rest:POST
+  function memory:addIDtoGame($playerID,$gameID){
+    let $game := memory:getGame($gameID)
+    return (
+      if ($game/Spieler1ID = 0) then (
+        replace value of node $game/Spieler1ID with $playerID,
+        replace value of node $game/spielerAnzahl with 1)
+      else if ($game/Spieler2ID = 0) then (
+        replace value of node $game/Spieler2ID with $playerID,
+        replace value of node $game/spielerAnzahl with 2)
+      else if ($game/Spieler3ID = 0) then (
+        replace value of node $game/Spieler3ID with $playerID,
+        replace value of node $game/spielerAnzahl with 3)
+      else if ($game/Spieler4ID = 0) then (
+        replace value of node $game/Spieler4ID with $playerID,
+        replace value of node $game/spielerAnzahl with 4)
+      else()
+    )
+  
+};
+
 (: function works :)
 declare
 %rest:path("memory/addPlayer/{$firstname}")
