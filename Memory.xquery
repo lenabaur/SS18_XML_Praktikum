@@ -327,6 +327,21 @@ function memory:getPlayer($playerID)  {
     return $game/memory/spielerAll/spieler[@id = $playerID]
 };
 
+(:function works	finds out the playerID of the player which hat the turn:)
+declare
+%rest:path("memory/zugPlayerID/{$gameID}")
+%rest:GET
+function memory:zugPlayerID($gameID){
+        let $game := memory:getGame($gameID)
+        return(
+        if ($game/SpielerAmZug = 1) then $game/Spieler1ID
+        else if ($game/SpielerAmZug = 2) then $game/Spieler2ID
+        else if ($game/SpielerAmZug = 3) then $game/Spieler3ID
+        else if ($game/SpielerAmZug = 4) then $game/Spieler4ID
+        else ()
+        )
+};
+
 (:function works:)
 declare 
 %rest:path("memory/getCard/{$cardID}")
