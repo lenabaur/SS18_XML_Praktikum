@@ -6,7 +6,6 @@ declare namespace array = "http://www.w3.org/2005/xpath-functions/array";
 
 
 
-
 (:function works:)
 declare 
     %rest:path("memory/setup")
@@ -48,6 +47,7 @@ declare
   (insert node $memoryGame as first into $game)
 };
 
+
 (:function works:)
 declare
   %rest:path("memory/addIDtoGame/{$playerID}/{$gameID}")
@@ -70,37 +70,6 @@ declare
         replace value of node $game/spielerAnzahl with 4)
       else()
     )
-  
-};
-
-(: function works :)
-declare
-%rest:path("memory/addPlayer/{$firstname}")
-%updating
-%rest:POST
-function memory:addPlayer($firstname) {
-    let $game := db:open("Memory")/memory/spielerAll
-    let $playerID := helper:timestamp()
-    let $player := <spieler id = "{$playerID}">
-    	                <spielerName>{$firstname}</spielerName>
-                      <punkte>0</punkte>
-    	              </spieler>	
-    return(insert node $player as last into $game)
-};
-
-(:function works  - all parameters have to be given(fill up ids with 0):)
-declare
-%rest:path("memory/matchPlayersToGame/{$gameID}/{$numberOfPlayers}/{$id1}/{$id2}/{$id3}/{$id4}")
-%updating
-%rest:POST
-function memory:MatchPlayersToGame($gameID,$numberOfPlayers,$id1,$id2,$id3,$id4) {
-    let $game := memory:getGame($gameID)
-    return(
-      replace value of node $game/spielerAnzahl with $numberOfPlayers,
-      replace value of node $game/Spieler1ID with $id1,
-      replace value of node $game/Spieler2ID with $id2,
-      replace value of node $game/Spieler3ID with $id3,
-      replace value of node $game/Spieler4ID with $id4)
 };
 
 (:function works    used together with moveForward:)
@@ -136,22 +105,73 @@ declare
 function memory:moveForward($gameID){
     let $game := memory:getGame($gameID)
   return (
-      if ($game/Spieler1ID = 0) then (
+      if ($game/Spieler1ID = "0") then (
         replace value of node $game/Spieler1ID with $game/Spieler2ID,
         replace value of node $game/Spieler2ID with $game/Spieler3ID,
         replace value of node $game/Spieler3ID with $game/Spieler4ID,
         replace value of node $game/Spieler4ID with "0")
-      else if ($game/Spieler2ID = 0) then (
+      else if ($game/Spieler2ID = "0") then (
         replace value of node $game/Spieler2ID with $game/Spieler3ID,
         replace value of node $game/Spieler3ID with $game/Spieler4ID,
         replace value of node $game/Spieler4ID with "0")
-      else if ($game/Spieler3ID = 0) then (
+      else if ($game/Spieler3ID = "0") then (
         replace value of node $game/Spieler3ID with $game/Spieler4ID,
         replace value of node $game/Spieler4ID with "0")
       else()
     )
 };
 
+(: function works :)
+declare
+%rest:path("memory/addPlayer/{$firstname}")
+%updating
+%rest:POST
+function memory:addPlayer($firstname) {
+    let $game := db:open("Memory")/memory/spielerAll
+    let $playerID := helper:timestamp()
+    let $player := <spieler id = "{$playerID}">
+    	                <spielerName>{$firstname}</spielerName>
+                      <punkte>0</punkte>
+    	              </spieler>	
+    return(insert node $player as last into $game)
+};
+
+(:function works  - all parameters have to be given(fill up ids with 0):)
+declare
+%rest:path("memory/matchPlayersToGame/{$gameID}/{$numberOfPlayers}/{$id1}/{$id2}/{$id3}/{$id4}")
+%updating
+%rest:POST
+function memory:matchPlayersToGame($gameID,$numberOfPlayers,$id1,$id2,$id3,$id4) {
+    let $game := memory:getGame($gameID)
+    return(
+      replace value of node $game/spielerAnzahl with $numberOfPlayers,
+      replace value of node $game/Spieler1ID with $id1,
+      replace value of node $game/Spieler2ID with $id2,
+      replace value of node $game/Spieler3ID with $id3,
+      replace value of node $game/Spieler4ID with $id4)
+};
+
+
+(:
+declare
+%rest:path("memory/createInitialDeck")
+%updating
+%rest:POST
+function memory:createInitialDeck(){ 
+        let $board := db:open("Memory")/memory/spielfeld
+        let $possibleCards := [1,1,2,2,3,3,4,4]
+
+        for $x in $board
+        let $sizeArray := array:size($possibleCards)
+        let $size := {$sizeArray}-1+$x
+        let $position := helper:random($size)
+        let $field := array:get($possibleCards,$position)
+        let $new:= array:remove($possibleCards,$position)
+        let $possibleCards := $new
+        return (replace value of node $board/feld[@id=$x]/card with $field)
+        
+};
+:)
 
 (:works already but only works for a card deck of 8 cards:)
 declare
@@ -217,6 +237,7 @@ function memory:playRound($game,$field1, $field2){
           memory:openCard($field2),
           memory:compareCards($player,$game,$field1, $field2))
 };
+
 
 (: function works
 changes gewinnerID to the playerID of the winner and to -1 if there is no clear winner;
@@ -300,6 +321,8 @@ function memory:compareScore($gameID){
         )
 };
 
+
+
 (: function works
 compareCards checks if the cards turned are the same, if yes: invsible is set to true for both cards 
 and the score of the player is increased by one
@@ -332,7 +355,7 @@ function memory:compareCards($player,$game,$field1, $field2){
 declare
 %rest:path("memory/openCard/{$fieldID}")
 %updating
-%rest:POST
+%rest:GET
 function memory:openCard($fieldID){
         let $cardToOpen := memory:getField($fieldID)
         let $opened := $cardToOpen/open
@@ -341,11 +364,10 @@ function memory:openCard($fieldID){
                  else () (:replace value of node $opened with 'somethingWentWrong':))
 };
 
-(: function works:)
 declare
 %rest:path("memory/closeCard/{$fieldID}")
 %updating
-%rest:POST
+%rest:GET
 function memory:closeCard($fieldID){
         let $cardToClose := memory:getField($fieldID)
         let $opened := $cardToClose/open
@@ -354,7 +376,7 @@ function memory:closeCard($fieldID){
                  else () (:replace value of node $opened with 'somethingWentWrong':))
 };
 
-(:function work:)
+(:function works:)
 declare
 %rest:path("memory/collectCards/{$fieldID1}/{$fieldID2}")
 %updating
@@ -369,6 +391,28 @@ function memory:collectCards($fieldID1, $fieldID2){
                   replace value of node $opened2 with "true")
                  else () (:replace value of node $opened with 'somethingWentWrong':))
 };
+
+(:function works      gives back stats, from the highest score to the lowest:)
+declare
+%rest:path("memory/statsPoints")
+%rest:GET
+function memory:statsPoints(){
+  for $x in db:open("Stats")/memory/rang
+  order by number($x/punkte) descending
+  return $x
+};
+
+(:
+declare
+%rest:path("memory/personalStats/{playerID}")
+%rest:GET
+function memory:personalStats($playerID){
+  for $x in db:open("Stats")/memory/rang
+  where $x/spielerID = $playerID
+  order by number($x/punkte) descending
+  return $x/punkte
+};
+:)
 
 (:function works:)
 declare
@@ -414,7 +458,7 @@ function memory:getPlayer($playerID)  {
     return $game/memory/spielerAll/spieler[@id = $playerID]
 };
 
-(:function works	finds out the playerID of the player which hat the turn:)
+(:function works	  finds out the playerID of the player which hat the turn:)
 declare
 %rest:path("memory/zugPlayerID/{$gameID}")
 %rest:GET
@@ -446,6 +490,18 @@ function memory:getField($fieldID as xs:string)  {
     let $spielfeld := db:open("Memory")
     return $spielfeld/memory/spielfeld/feld[@id = $fieldID]
 };
+
+(: does not work
+declare 
+%rest:path("memory/createArray/{$size}")
+%rest:GET 
+function memory:createArray($size)  {
+    let $cardspossible := [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16,17,17,18,18]
+    let $highestID := $size idiv 2
+    let $cards := array:filter($cardspossible, $cardspossible>$highestID)
+    return $cards
+};
+:)
 
 declare
   %rest:path("memory/start")
@@ -663,18 +719,18 @@ declare
 	</html>
 	
 	};
-
-declare   
+  
+declare  
 %rest:path("memory/draw")
-%rest:GET 
+%output:method("html")
+%rest:GET
 function memory:draw() {
-   let $xslt := doc("./memoryGame.xsl")   
-   let $input :=
-        <data>
-            <element>Element 1</element>
-       </data>
-   return ($xslt)
+   let $xslt := doc("../webapp/static/memory/memoryGame.xsl")  
+   let $xml := db:open("Memory")
+
+   return (xslt:transform($xml, $xslt))
 
 }; 
+
 
 
